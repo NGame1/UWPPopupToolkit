@@ -1,0 +1,40 @@
+﻿<UserControl Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded"
+    x:Class="UWPPopupToolkit.Controls.SlideupPopup.SlideupPopup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPPopupToolkit.Controls.SlideupPopup"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid x:Name="_popup" Opacity="0" CornerRadius="25,25,0,0" Background="White">
+        <Grid.Resources>
+            <Storyboard x:Key="HidePopupStoryboard" x:Name="HidePopupStoryboard" Duration="0:0:0.3" Storyboard.TargetName="_popup">
+                <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="2000" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+                <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="0" Storyboard.TargetProperty="(UIElement.Opacity)"/>
+            </Storyboard>
+            <Storyboard x:Key="ShowPopupStoryboard" x:Name="ShowPopupStoryboard" Duration="0:0:0.3" Storyboard.TargetName="_popup">
+                <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="100" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+                <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="1" Storyboard.TargetProperty="(UIElement.Opacity)"/>
+            </Storyboard>
+        </Grid.Resources>
+        <Grid.RenderTransform>
+            <CompositeTransform x:Name="_translatetransform"/>
+        </Grid.RenderTransform>
+        <Grid x:Name="_contentgr">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Padding="0,4" ManipulationMode="TranslateY" Background="#00000001"
+              ManipulationStarted="_popup_ManipulationStarted" ManipulationDelta="_popup_ManipulationDelta" ManipulationCompleted="_popup_ManipulationCompleted">
+                <Rectangle Width="45" Height="8" Fill="LightGray" RadiusX="5" RadiusY="45"/>
+            </Grid>
+            <Grid x:Name="ContentPresentationGrid" Grid.Row="1">
+
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

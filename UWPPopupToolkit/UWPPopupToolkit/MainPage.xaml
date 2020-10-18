@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="UWPPopupToolkit.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPPopupToolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:custompopups="using:UWPPopupToolkit.Controls.PopupPresenterHost"
+    mc:Ignorable="d">
+
+    <custompopups:PopupPresenterHost x:Name="Host" Id="MainPageHost">
+        <Grid Background="White">
+            <Image Source="/Assets/SampleImages/MainBG.jpg" Stretch="Fill"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Click="ShowSlideupPopupNormalSize" Content="Show Slideup popup (Normal)"/>
+                <Button Click="ShowSlideupPopupHeight200" Content="Show Slideup popup (Height = 200)"/>
+            </StackPanel>
+        </Grid>
+    </custompopups:PopupPresenterHost>
+</Page>
