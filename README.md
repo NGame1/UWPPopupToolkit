@@ -12,7 +12,7 @@ args parameter will be used when your content constructor (ctor) needs some para
 
 # Currently supported popup types
 Currently, We support Slideup Popup type witch is similar to Instagram's popups. 
-
+![Capture](https://github.com/NGame1/UWPPopupToolkit/blob/main/UWPPopupToolkit/UWPPopupToolkit/Screenshots/Animate.gif?raw=true)
 # System Requirements
 - Microsoft Visual Studio 2019 
 - Universal Windows Platform SDK (Target: Win10 2004 / Build 19041)
