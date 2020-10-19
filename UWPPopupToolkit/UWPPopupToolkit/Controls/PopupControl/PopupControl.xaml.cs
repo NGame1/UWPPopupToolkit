@@ -13,18 +13,18 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace UWPPopupToolkit.Controls.SlideupPopup
+namespace UWPPopupToolkit.Controls.PopupControl
 {
-    public sealed partial class SlideupPopup : UserControl, IDisposable, INotifyPropertyChanged
+    public sealed partial class PopupControl : UserControl, INotifyPropertyChanged
     {
-        public SlideupPopup(Type PopupContent, params object[] args)
+        public PopupControl(Type PopupContent, params object[] args)
         {
             this.InitializeComponent();
-            PopupContentType = PopupContent;
             if (PopupContent is null) throw new ArgumentNullException("PopupContent", "PopupContent Can't be null.");
             var content = Activator.CreateInstance(PopupContent, args);
             if (content is not FrameworkElement uicontent)
@@ -35,7 +35,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopup
             {
                 var initialize = PopupContent.GetMethod("InitializeComponent");
                 initialize.Invoke(uicontent, null);
-                ContentPresentationGrid.Children.Add(uicontent);
+                _content.Children.Add(uicontent);
             }
         }
 

@@ -9,12 +9,15 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHost
 {
     public partial class PopupPresenterHost
     {
-        public static Guid ShowSlideupPopup(Type content, double ContentHeight = double.NaN, string Host_Id = null, params object[] args)
+        public static Guid ShowSlideupPopup(Type content, double ContentHeight = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, params object[] args)
         {
             PopupPresenterHost Host = null;
             if (Host_Id == null)
                 Host = _hosts.Any() ? _hosts.FirstOrDefault() : throw new Exception("Mo Hosts found or the host disposed.");
             else Host = _hosts.Any() ? _hosts.First(x => x.Id == Host_Id) : throw new Exception("Mo Hosts found or the host disposed.");
+            if (Host.Children.Any(x => x is SlideupPopup.SlideupPopup slideup && slideup.PopupContentType == content))
+                if (!OpenNewIfExists)
+                    throw new Exception("An existing popup of this type is currently open.");
             var p = new SlideupPopup.SlideupPopup(content, args) { PopupHeight = ContentHeight };
             Host.Children.Add(p);
             return p.Identifier;

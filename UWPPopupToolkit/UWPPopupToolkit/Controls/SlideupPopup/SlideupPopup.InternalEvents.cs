@@ -42,6 +42,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopup
             }
             else await ShowPopupStoryboard.BeginAsync();
         }
+
         private async void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             var Host = (PopupPresenterHost.PopupPresenterHost)this.Parent;

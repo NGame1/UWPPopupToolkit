@@ -38,5 +38,6 @@ namespace UWPPopupToolkit.Controls.SlideupPopup
         public Duration AnimationDuration { get; set; } = new Duration(TimeSpan.FromMilliseconds(300));
         Point _startPoint;
         bool _isdisposing = false;
+        public Type PopupContentType { get; }
     }
 }

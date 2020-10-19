@@ -127,6 +127,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PopupControl\PopupControl.Properties.cs" />
+    <Compile Include="Controls\PopupControl\PopupControl.xaml.cs">
+      <DependentUpon>PopupControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PopupPresenterHost\PopupPresenterHost.cs" />
     <Compile Include="Controls\PopupPresenterHost\PopupPresenterHost.Properties.cs" />
     <Compile Include="Controls\SlideupPopup\SlideupPopup.Functions.cs" />
@@ -170,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\PopupControl\PopupControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SlideupPopup\SlideupPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -200,9 +208,7 @@
   <ItemGroup>
     <Compile Include="Controls\SlideupPopup\SlideupPopup.InternalEvents.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\PopupControl\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
