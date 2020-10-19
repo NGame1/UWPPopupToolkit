@@ -9,6 +9,16 @@ namespace UWPPopupToolkit.Controls.SlideupPopup
 {
     public partial class SlideupPopup
     {
+        public async Task ShowPopupAsync()
+        {
+            await ShowPopupStoryboard.BeginAsync();
+        }
+
+        public async void ShowPopup()
+        {
+            await ShowPopupStoryboard.BeginAsync();
+        }
+
         public async void Dispose()
         {
             if (_isdisposing || HidePopupStoryboard == null) return;

@@ -43,7 +43,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopup
             else await ShowPopupStoryboard.BeginAsync();
         }
 
-        private async void UserControl_Loaded(object sender, RoutedEventArgs e)
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             var Host = (PopupPresenterHost.PopupPresenterHost)this.Parent;
             var da = ShowPopupStoryboard.Children[0] as DoubleAnimation;
@@ -56,7 +56,6 @@ namespace UWPPopupToolkit.Controls.SlideupPopup
                 da.To = Padding;
             }
             else ContentPresentationGrid.Margin = new Thickness(0, 0, 0, 100);
-            await ShowPopupStoryboard.BeginAsync();
             da.From = null;
         }
 
