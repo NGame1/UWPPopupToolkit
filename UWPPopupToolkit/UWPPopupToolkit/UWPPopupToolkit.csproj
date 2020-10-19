@@ -200,6 +200,9 @@
   <ItemGroup>
     <Compile Include="Controls\SlideupPopup\SlideupPopup.InternalEvents.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\PopupControl\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

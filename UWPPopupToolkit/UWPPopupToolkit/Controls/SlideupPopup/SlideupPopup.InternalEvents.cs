@@ -17,7 +17,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopup
         {
             _startPoint = e.Position;
         }
-
+        
         private void _popup_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             var Host = (FrameworkElement)this.Parent;
@@ -25,7 +25,8 @@ namespace UWPPopupToolkit.Controls.SlideupPopup
             var enddelta = _translatetransform.TranslateY + e.Delta.Translation.Y;
             if (enddelta >= Host.ActualHeight)
                 _translatetransform.TranslateY = Host.ActualHeight;
-            else if (enddelta < 0) _translatetransform.TranslateY = 0;
+            else if (double.IsNaN(PopupHeight) && enddelta < 100) _translatetransform.TranslateY = 100;
+            else if (enddelta < (Host.ActualHeight - PopupHeight)) _translatetransform.TranslateY = (Host.ActualHeight - PopupHeight);
             else _translatetransform.TranslateY += e.Delta.Translation.Y;
         }
 
