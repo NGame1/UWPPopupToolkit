@@ -12,7 +12,9 @@
             <Image Source="/Assets/SampleImages/MainBG.jpg" Stretch="Fill"/>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button Click="ShowSlideupPopupNormalSize" Content="Show Slideup popup (Normal)"/>
-                <Button Click="ShowSlideupPopupHeight200" Content="Show Slideup popup (Height = 200)"/>
+                <Button Click="ShowSlideupPopupHeight200" Content="Show Slideup popup (Height = 300)"/>
+                <Button Click="ShowSlideupPopupNormalSizeAsync" Content="Show Slideup popup (Normal) Async"/>
+                <Button Click="ShowSlideupPopupHeight200Async" Content="Show Slideup popup (Height = 300) Async"/>
             </StackPanel>
         </Grid>
     </custompopups:PopupPresenterHost>

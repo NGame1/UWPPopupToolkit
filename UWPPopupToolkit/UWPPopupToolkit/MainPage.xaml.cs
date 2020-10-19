@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UWPPopupToolkit.Controls.PopupPresenterHost;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -35,7 +36,19 @@ namespace UWPPopupToolkit
 
         private void ShowSlideupPopupHeight200(object sender, RoutedEventArgs e)
         {
-            var g = PopupPresenterHost.ShowSlideupPopup(typeof(ListPage), 200);
+            var g = PopupPresenterHost.ShowSlideupPopup(typeof(ListPage), 300);
+        }
+
+        private async void ShowSlideupPopupNormalSizeAsync(object sender, RoutedEventArgs e)
+        {
+            var g = await PopupPresenterHost.ShowSlideupPopupAsync(typeof(ListPage));
+            await new MessageDialog(g.ToString()).ShowAsync();
+        }
+
+        private async void ShowSlideupPopupHeight200Async(object sender, RoutedEventArgs e)
+        {
+            var g = await PopupPresenterHost.ShowSlideupPopupAsync(typeof(ListPage), 300);
+            await new MessageDialog(g.ToString()).ShowAsync();
         }
     }
 }
