@@ -134,6 +134,7 @@
       <DependentUpon>PopupControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\PopupPresenterHost\PopupPresenterHost.cs" />
+    <Compile Include="Controls\PopupPresenterHost\PopupPresenterHost.PopupControlFunctions.cs" />
     <Compile Include="Controls\PopupPresenterHost\PopupPresenterHost.Properties.cs" />
     <Compile Include="Controls\SlideupPopup\SlideupPopup.Functions.cs" />
     <Compile Include="Controls\SlideupPopup\SlideupPopup.Properties.cs" />
@@ -214,7 +215,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\PopupPresenterHost\PopupPresenterHost.Functions.cs" />
+    <Compile Include="Controls\PopupPresenterHost\PopupPresenterHost.SlideupFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\SlideupPopup\SlideupPopup.InternalEvents.cs" />

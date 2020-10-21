@@ -25,7 +25,7 @@ namespace UWPPopupToolkit.Controls.PopupControl
 
         public Type PopupContentType { get; }
 
-        public Thickness ContentMargin { get; set; }
+        public Thickness ContentMargin { get; set; } = new Thickness(0, 0, 0, 0);
 
         public Duration ShowAnimationDuration
         {
@@ -86,12 +86,12 @@ namespace UWPPopupToolkit.Controls.PopupControl
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HideAnimation"));
             }
         }
-        
+
         public static readonly DependencyProperty ContentMarginProperty = DependencyProperty.Register(
          "ContentMargin",
          typeof(Thickness),
          typeof(PopupControl),
-         new PropertyMetadata(new Thickness(100,100,100,100))
+         new PropertyMetadata(new Thickness(0, 0, 0, 0))
         );
 
         public static readonly DependencyProperty HideAnimationDurationProperty = DependencyProperty.Register(
