@@ -29,7 +29,7 @@ The <b>content</b> parameter is the Type of the UserControl or the page that you
 
 # Currently supported popup types
 Currently, We support Slideup Popup type which is similar to Instagram's popups. 
-![Capture](https://github.com/NGame1/UWPPopupToolkit/blob/main/UWPPopupToolkit/UWPPopupToolkit/Screenshots/Animate.gif?raw=true)
+![Capture](https://github.com/NGame1/UWPPopupToolkit/blob/main/UWPPopupToolkit/UWPPopupToolkit/Screenshots/Animate.gif?raw=true) ![Capture2](https://github.com/NGame1/UWPPopupToolkit/blob/main/UWPPopupToolkit/UWPPopupToolkit/Screenshots/Animate2.gif?raw=true)
 # System Requirements
 - Microsoft Visual Studio 2019 
 - Universal Windows Platform SDK (Target: Win10 2004 / Build 19041)
