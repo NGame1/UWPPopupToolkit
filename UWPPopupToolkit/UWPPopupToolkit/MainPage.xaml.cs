@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using UWPPopupToolkit.Controls.PopupPresenterHost;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -49,6 +50,20 @@ namespace UWPPopupToolkit
         {
             var g = await PopupPresenterHost.ShowSlideupPopupAsync(typeof(ListPage), 300);
             await new MessageDialog(g.ToString()).ShowAsync();
+        }
+
+        private async void ShowPopupControl(object sender, RoutedEventArgs e)
+        {
+            var g = PopupPresenterHost.ShowPopupControl(typeof(ListPage2));
+            await Task.Delay(1000);
+            PopupPresenterHost.HidePopupControl(g);
+        }
+
+        private async void ShowPopupControlAsync(object sender, RoutedEventArgs e)
+        {
+            var g = PopupPresenterHost.ShowPopupControl(typeof(ListPage2));
+            await Task.Delay(1000);
+            PopupPresenterHost.HidePopupControl(g);
         }
     }
 }

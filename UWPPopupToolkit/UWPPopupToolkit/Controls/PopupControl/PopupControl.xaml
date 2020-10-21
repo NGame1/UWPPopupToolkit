@@ -1,4 +1,4 @@
-﻿<UserControl
+﻿<UserControl Loaded="UserControl_Loaded"
     x:Class="UWPPopupToolkit.Controls.PopupControl.PopupControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,7 +9,21 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid x:Name="_content">
-        
+    <Grid x:Name="lightdismisslayer" Background="#99000000">
+        <Grid x:Name="_content">
+            <Grid.Resources>
+                <Storyboard x:Key="HidePopupStoryboard" x:Name="HidePopupStoryboard" Duration="0:0:0.3" Storyboard.TargetName="_popup">
+                    <DoubleAnimation Duration="{x:Bind HideAnimationDuration}" To="2000" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+                    <DoubleAnimation Duration="{x:Bind HideAnimationDuration}" To="0" Storyboard.TargetProperty="(UIElement.Opacity)"/>
+                </Storyboard>
+                <Storyboard x:Key="ShowPopupStoryboard" x:Name="ShowPopupStoryboard" Duration="0:0:0.3" Storyboard.TargetName="_popup">
+                    <DoubleAnimation Duration="{x:Bind ShowAnimationDuration}" To="100" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+                    <DoubleAnimation Duration="{x:Bind ShowAnimationDuration}" To="1" Storyboard.TargetProperty="(UIElement.Opacity)"/>
+                </Storyboard>
+            </Grid.Resources>
+            <Grid.RenderTransform>
+                <CompositeTransform x:Name="_compositeTransform"/>
+            </Grid.RenderTransform>
+        </Grid>
     </Grid>
 </UserControl>

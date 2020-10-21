@@ -127,6 +127,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PopupControl\PopupControl.Functions.cs" />
+    <Compile Include="Controls\PopupControl\PopupControl.InternalEvents.cs" />
     <Compile Include="Controls\PopupControl\PopupControl.Properties.cs" />
     <Compile Include="Controls\PopupControl\PopupControl.xaml.cs">
       <DependentUpon>PopupControl.xaml</DependentUpon>
@@ -137,6 +139,10 @@
     <Compile Include="Controls\SlideupPopup\SlideupPopup.Properties.cs" />
     <Compile Include="Controls\SlideupPopup\SlideupPopup.xaml.cs">
       <DependentUpon>SlideupPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="ListPage2.xaml.cs">
+      <DependentUpon>ListPage2.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -183,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListPage2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

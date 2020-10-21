@@ -20,7 +20,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace UWPPopupToolkit.Controls.PopupControl
 {
-    public sealed partial class PopupControl : UserControl, INotifyPropertyChanged
+    public sealed partial class PopupControl : UserControl, IDisposable, INotifyPropertyChanged
     {
         public PopupControl(Type PopupContent, params object[] args)
         {

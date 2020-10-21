@@ -21,6 +21,12 @@ namespace UWPPopupToolkit.Controls.PopupControl
 
     public partial class PopupControl
     {
+        public Guid Identifier { get; } = Guid.NewGuid();
+
+        public Type PopupContentType { get; }
+
+        public Thickness ContentMargin { get; set; }
+
         public Duration ShowAnimationDuration
         {
             get
@@ -42,7 +48,7 @@ namespace UWPPopupToolkit.Controls.PopupControl
             {
                 if (GetValue(ShowAnimationProperty) is PopupControlAnimationKind Anim)
                     return (PopupControlAnimationKind)Anim;
-                else return PopupControlAnimationKind.None;
+                else return PopupControlAnimationKind.FadeIn;
             }
             set
             {
@@ -72,7 +78,7 @@ namespace UWPPopupToolkit.Controls.PopupControl
             {
                 if (GetValue(HideAnimationProperty) is PopupControlAnimationKind Anim)
                     return (PopupControlAnimationKind)Anim;
-                else return PopupControlAnimationKind.None;
+                else return PopupControlAnimationKind.FadeOut;
             }
             set
             {
@@ -80,6 +86,13 @@ namespace UWPPopupToolkit.Controls.PopupControl
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HideAnimation"));
             }
         }
+        
+        public static readonly DependencyProperty ContentMarginProperty = DependencyProperty.Register(
+         "ContentMargin",
+         typeof(Thickness),
+         typeof(PopupControl),
+         new PropertyMetadata(new Thickness(100,100,100,100))
+        );
 
         public static readonly DependencyProperty HideAnimationDurationProperty = DependencyProperty.Register(
          "HideAnimationDuration",
@@ -99,14 +112,14 @@ namespace UWPPopupToolkit.Controls.PopupControl
          "HideAnimation",
          typeof(PopupControlAnimationKind),
          typeof(PopupControl),
-         new PropertyMetadata(PopupControlAnimationKind.None)
+         new PropertyMetadata(PopupControlAnimationKind.FadeOut)
         );
 
         public static readonly DependencyProperty ShowAnimationProperty = DependencyProperty.Register(
          "ShowAnimation",
          typeof(PopupControlAnimationKind),
          typeof(PopupControl),
-         new PropertyMetadata(PopupControlAnimationKind.None)
+         new PropertyMetadata(PopupControlAnimationKind.FadeIn)
         );
 
         public event PropertyChangedEventHandler PropertyChanged;
