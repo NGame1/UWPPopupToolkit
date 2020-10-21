@@ -61,9 +61,13 @@ namespace UWPPopupToolkit
 
         private async void ShowPopupControlAsync(object sender, RoutedEventArgs e)
         {
-            var g = PopupPresenterHost.ShowPopupControl(typeof(ListPage2));
-            await Task.Delay(1000);
+            var g = await PopupPresenterHost.ShowPopupControlAsync(typeof(ListPage2));
             PopupPresenterHost.HidePopupControl(g);
+        }
+
+        private void ShowPopupControlCustomClose(object sender, RoutedEventArgs e)
+        {
+            var g = PopupPresenterHost.ShowPopupControl(typeof(ListPage2));
         }
     }
 }

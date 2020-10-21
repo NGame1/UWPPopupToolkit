@@ -17,6 +17,7 @@
                 <Button Click="ShowSlideupPopupHeight200Async" Content="Show Slideup popup (Height = 300) Async"/>
                 <Button Click="ShowPopupControl" Content="Show Slideup popup Control"/>
                 <Button Click="ShowPopupControlAsync" Content="Show Slideup popup Control Async"/>
+                <Button Click="ShowPopupControlCustomClose" Content="Show Slideup popup Control Custom Close"/>
             </StackPanel>
         </Grid>
     </custompopups:PopupPresenterHost>
