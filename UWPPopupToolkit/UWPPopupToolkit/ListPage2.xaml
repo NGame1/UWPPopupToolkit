@@ -66,6 +66,24 @@
             <x:String>/Assets/SampleImages/F7.jpg</x:String>
             <x:String>/Assets/SampleImages/F8.jpg</x:String>
             <x:String>/Assets/SampleImages/F9.jpg</x:String>
+            <x:String>/Assets/SampleImages/F1.jpg</x:String>
+            <x:String>/Assets/SampleImages/F2.jpg</x:String>
+            <x:String>/Assets/SampleImages/F3.jpg</x:String>
+            <x:String>/Assets/SampleImages/F4.jpg</x:String>
+            <x:String>/Assets/SampleImages/F5.jpg</x:String>
+            <x:String>/Assets/SampleImages/F6.jpg</x:String>
+            <x:String>/Assets/SampleImages/F7.jpg</x:String>
+            <x:String>/Assets/SampleImages/F8.jpg</x:String>
+            <x:String>/Assets/SampleImages/F9.jpg</x:String>
+            <x:String>/Assets/SampleImages/F1.jpg</x:String>
+            <x:String>/Assets/SampleImages/F2.jpg</x:String>
+            <x:String>/Assets/SampleImages/F3.jpg</x:String>
+            <x:String>/Assets/SampleImages/F4.jpg</x:String>
+            <x:String>/Assets/SampleImages/F5.jpg</x:String>
+            <x:String>/Assets/SampleImages/F6.jpg</x:String>
+            <x:String>/Assets/SampleImages/F7.jpg</x:String>
+            <x:String>/Assets/SampleImages/F8.jpg</x:String>
+            <x:String>/Assets/SampleImages/F9.jpg</x:String>
         </ListView>
     </Grid>
 </Page>
