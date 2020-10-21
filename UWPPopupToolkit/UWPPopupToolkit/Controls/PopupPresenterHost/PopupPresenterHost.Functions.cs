@@ -73,7 +73,7 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHost
             }
         }
 
-        public static Guid ShowPopupControl(Type content, string Host_Id = null, bool OpenNewIfExists = true, PopupControlAnimationKind AnimationKind = PopupControlAnimationKind.FadeIn, params object[] args)
+        public static Guid ShowPopupControl(Type content, string Host_Id = null, bool OpenNewIfExists = true, PopupControlAnimationKind ShowAnimationMode = PopupControlAnimationKind.FadeIn, PopupControlAnimationKind HideAnimationMode = PopupControlAnimationKind.FadeOut, params object[] args)
         {
             PopupPresenterHost Host = null;
             if (Host_Id == null)
@@ -82,13 +82,13 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHost
             if (Host.Children.Any(x => x is PopupControl.PopupControl pop && pop.PopupContentType == content))
                 if (!OpenNewIfExists)
                     throw new Exception("An existing popup of this type is currently open.");
-            var p = new PopupControl.PopupControl(content, args);
+            var p = new PopupControl.PopupControl(content, args) { ShowAnimation = ShowAnimationMode, HideAnimation = HideAnimationMode };
             Host.Children.Add(p);
             p.ShowPopup();
             return p.Identifier;
         }
 
-        public static async Task<Guid> ShowPopupControlAsync(Type content, string Host_Id = null, bool OpenNewIfExists = true, PopupControlAnimationKind AnimationKind = PopupControlAnimationKind.FadeIn, params object[] args)
+        public static async Task<Guid> ShowPopupControlAsync(Type content, string Host_Id = null, bool OpenNewIfExists = true, PopupControlAnimationKind ShowAnimationMode = PopupControlAnimationKind.FadeIn, PopupControlAnimationKind HideAnimationMode = PopupControlAnimationKind.FadeOut, params object[] args)
         {
             PopupPresenterHost Host = null;
             if (Host_Id == null)
@@ -97,12 +97,12 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHost
             if (Host.Children.Any(x => x is PopupControl.PopupControl pop && pop.PopupContentType == content))
                 if (!OpenNewIfExists)
                     throw new Exception("An existing popup of this type is currently open.");
-            var p = new PopupControl.PopupControl(content, args);
+            var p = new PopupControl.PopupControl(content, args) { ShowAnimation = ShowAnimationMode, HideAnimation = HideAnimationMode };
             Host.Children.Add(p);
             await p.ShowPopupAsync();
             return p.Identifier;
         }
-        
+
         public static async void HidePopupControl(Guid Identifier, string Host_Id = null)
         {
             PopupPresenterHost Host = null;

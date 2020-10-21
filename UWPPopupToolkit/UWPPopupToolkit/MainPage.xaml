@@ -18,6 +18,7 @@
                 <Button Click="ShowPopupControl" Content="Show Slideup popup Control"/>
                 <Button Click="ShowPopupControlAsync" Content="Show Slideup popup Control Async"/>
                 <Button Click="ShowPopupControlCustomClose" Content="Show Slideup popup Control Custom Close"/>
+                <Button Click="ShowPopupControlAnimation" Content="Show Slideup popup Animation"/>
             </StackPanel>
         </Grid>
     </custompopups:PopupPresenterHost>

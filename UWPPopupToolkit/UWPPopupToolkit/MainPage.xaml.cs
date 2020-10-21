@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using UWPPopupToolkit.Controls.PopupControl;
 using UWPPopupToolkit.Controls.PopupPresenterHost;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -68,6 +69,13 @@ namespace UWPPopupToolkit
         private void ShowPopupControlCustomClose(object sender, RoutedEventArgs e)
         {
             var g = PopupPresenterHost.ShowPopupControl(typeof(ListPage2));
+        }
+
+        private async void ShowPopupControlAnimation(object sender, RoutedEventArgs e)
+        {
+            var g = await PopupPresenterHost.ShowPopupControlAsync(typeof(ListPage2),
+                ShowAnimationMode: PopupControlAnimationKind.SlideUp, HideAnimationMode: PopupControlAnimationKind.SlideUp);
+            await PopupPresenterHost.HidePopupControlAsync(g);
         }
     }
 }
