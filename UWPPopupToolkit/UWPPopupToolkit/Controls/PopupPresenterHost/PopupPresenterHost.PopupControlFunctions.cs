@@ -8,7 +8,7 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHost
 {
     public partial class PopupPresenterHost
     {
-        public static Guid ShowPopupControl(Type content, string Host_Id = null, bool OpenNewIfExists = true, PopupControlAnimationKind ShowAnimationMode = PopupControlAnimationKind.FadeIn, PopupControlAnimationKind HideAnimationMode = PopupControlAnimationKind.FadeOut, params object[] args)
+        public static Guid ShowPopupControl(Type content, string Host_Id = null, bool OpenNewIfExists = true, PopupControlAnimationKind ShowAnimationMode = PopupControlAnimationKind.FadeIn, PopupControlAnimationKind HideAnimationMode = PopupControlAnimationKind.FadeOut, Thickness? Margin = null, params object[] args)
         {
             PopupPresenterHost Host = null;
             if (Host_Id == null)
@@ -18,12 +18,14 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHost
                 if (!OpenNewIfExists)
                     throw new Exception("An existing popup of this type is currently open.");
             var p = new PopupControl.PopupControl(content, args) { ShowAnimation = ShowAnimationMode, HideAnimation = HideAnimationMode };
+            if (Margin.HasValue)
+                p.ContentMargin = Margin.Value;
             Host.Children.Add(p);
             p.ShowPopup();
             return p.Identifier;
         }
 
-        public static async Task<Guid> ShowPopupControlAsync(Type content, string Host_Id = null, bool OpenNewIfExists = true, PopupControlAnimationKind ShowAnimationMode = PopupControlAnimationKind.FadeIn, PopupControlAnimationKind HideAnimationMode = PopupControlAnimationKind.FadeOut, params object[] args)
+        public static async Task<Guid> ShowPopupControlAsync(Type content, string Host_Id = null, bool OpenNewIfExists = true, PopupControlAnimationKind ShowAnimationMode = PopupControlAnimationKind.FadeIn, PopupControlAnimationKind HideAnimationMode = PopupControlAnimationKind.FadeOut, Thickness? Margin = null, params object[] args)
         {
             PopupPresenterHost Host = null;
             if (Host_Id == null)
@@ -33,6 +35,8 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHost
                 if (!OpenNewIfExists)
                     throw new Exception("An existing popup of this type is currently open.");
             var p = new PopupControl.PopupControl(content, args) { ShowAnimation = ShowAnimationMode, HideAnimation = HideAnimationMode };
+            if (Margin.HasValue)
+                p.ContentMargin = Margin.Value;
             Host.Children.Add(p);
             await p.ShowPopupAsync();
             return p.Identifier;

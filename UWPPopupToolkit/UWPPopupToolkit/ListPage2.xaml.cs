@@ -29,11 +29,13 @@ namespace UWPPopupToolkit
         public ListPage2()
         {
             this.InitializeComponent();
+            listpage.InitializeComponent();
         }
 
         private void Hide_Click(object sender, RoutedEventArgs e)
         {
             PopupPresenterHost.HidePopupControl(this);
         }
+
     }
 }

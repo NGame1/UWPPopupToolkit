@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UWPPopupToolkit.Helpers;
+using Windows.UI.Xaml;
 
 namespace UWPPopupToolkit.Controls.SlideupPopup
 {
@@ -17,6 +19,23 @@ namespace UWPPopupToolkit.Controls.SlideupPopup
         public async void ShowPopup()
         {
             await ShowPopupStoryboard.BeginAsync();
+        }
+
+        public static Guid GetIdentifier(FrameworkElement control)
+        {
+            var parent = control;
+            while (parent != null)
+            {
+                var p = parent.GetPropertyValue("Identifier");
+                if (p != null) return (Guid)p;
+                else
+                {
+                    parent = (FrameworkElement)parent.Parent;
+                    if (parent == null) return Guid.Empty;
+                }
+            }
+            return Guid.Empty;
+
         }
 
         public async void Dispose()

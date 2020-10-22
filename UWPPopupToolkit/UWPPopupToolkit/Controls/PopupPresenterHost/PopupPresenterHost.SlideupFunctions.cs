@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using UWPPopupToolkit.Controls.PopupControl;
-using UWPPopupToolkit.Controls.SlideupPopup;
 using Windows.UI.Xaml;
 
 namespace UWPPopupToolkit.Controls.PopupPresenterHost
@@ -71,6 +67,18 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHost
                 await Task.Delay((int)uc.AnimationDuration.TimeSpan.TotalMilliseconds);
                 Host.Children.Remove(uc);
             }
+        }
+
+        public static void HideSlideupPopup(FrameworkElement popupContent, string Host_Id = null)
+        {
+            var id = SlideupPopup.SlideupPopup.GetIdentifier(popupContent);
+            HideSlideupPopup(id, Host_Id);
+        }
+
+        public static async Task HideSlideupPopupAsync(FrameworkElement popupContent, string Host_Id = null)
+        {
+            var id = SlideupPopup.SlideupPopup.GetIdentifier(popupContent);
+            await HideSlideupPopupAsync(id, Host_Id);
         }
 
     }
