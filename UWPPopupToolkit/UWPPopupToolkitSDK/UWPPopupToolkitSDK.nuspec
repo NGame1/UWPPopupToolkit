@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>UWPPopupToolkit</id>
-    <version>0.0.0.5-rc</version>
+    <version>0.0.1.0-rc</version>
     <title>UWPPopupToolkit</title>
     <authors>AliNGame</authors>
     <owners>AliNGame</owners>
@@ -21,4 +21,17 @@ This package will allows you to simply create great looking popups and dialogs e
     <copyright>Copyright 2020</copyright>
     <tags>UWP Popup UI Toolkit Dialog</tags>
   </metadata>
+    <files>
+        <!-- XAML controls -->
+
+        <file src="Controls\MessageBoxControls\MessageBoxControl.xaml" target="lib\netcore50\Controls\MessageBoxControls"/>
+        <file src="bin\Debug\UWPPopupToolkit\Controls\MessageBoxControls\MessageBoxControl.xbf" target="lib\netcore50\Controls\MessageBoxControls"/>
+
+        <file src="Controls\PopupControlControls\PopupControl.xaml" target="lib\netcore50\Controls\PopupControlControls"/>
+        <file src="bin\Debug\UWPPopupToolkit\Controls\PopupControlControls\PopupControl.xbf" target="lib\netcore50\Controls\PopupControlControls"/>
+
+        <file src="Controls\SlideupPopupControls\SlideupPopup.xaml" target="lib\netcore50\Controls\SlideupPopupControls"/>
+        <file src="bin\Debug\UWPPopupToolkit\Controls\SlideupPopupControls\SlideupPopup.xbf" target="lib\netcore50\Controls\SlideupPopupControls"/>
+
+    </files>
 </package>

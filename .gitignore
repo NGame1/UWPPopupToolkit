@@ -10,3 +10,4 @@
 /UWPPopupToolkit/UWPPopupToolkitSDK/obj
 /UWPPopupToolkit/UWPPopupToolkitSDK/nuget.exe
 *.nupkg
+/UWPPopupToolkit/UWPPopupToolkitSDK/bin
