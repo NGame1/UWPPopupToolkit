@@ -4,7 +4,7 @@ UWP Popup Toolkit is a simple UI Toolkit to make it easier to work with popups a
 # Get Started
 It is easy to use UWPPopupToolkit. 
 
-First of all, you need to add UWP Popup Toolkit to your solution and reference it to the main project. 
+First of all, you need to add UWP Popup Toolkit to your solution and reference it to the main project. Or, You can use our NuGet package instead. 
 
 Then add PopupPresenterHost to the Root of your Main Page. 
 
@@ -26,6 +26,11 @@ The <b>content</b> parameter is the Type of the UserControl or the page that you
 <b>Host_Id</b> parameter can be used when you have several PopupPresenterHost controls (for example on every page or multiple controls in each other for some reason), this parameter will define which host will be the parent of the popup.
 
 <b>args</b> parameter will be used when your content constructor (ctor) needs some parameters to be initialized. You can pass them using the args parameter and we will create instance of your control and dispose it after hiding the popup. 
+
+# NuGet Packages
+| Target | Branch | Recommended package version |
+| ------ | ------ | ------ |
+| Release Condidate | RC/0.0.0.5 | [![NuGet](https://img.shields.io/nuget/vpre/UWPPopupToolkit)](https://www.nuget.org/packages/UWPPopupToolkit/0.0.0.5-rc) |
 
 # Currently supported popup types
 Currently, We support Slideup Popup type which is similar to Instagram's popups. 
