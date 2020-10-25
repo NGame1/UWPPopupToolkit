@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml;
 
-namespace UWPPopupToolkit.Sample.Controls.PopupPresenterHost
+namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
 {
     public partial class PopupPresenterHost
     {

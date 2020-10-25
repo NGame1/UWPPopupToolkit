@@ -1,15 +1,12 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Animations;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using UWPPopupToolkit.Sample.Controls.PopupPresenterHost;
-using UWPPopupToolkit.Sample.Helpers;
+using UWPPopupToolkit.Controls.PopupPresenterHostControls;
+using UWPPopupToolkit.Helpers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Animation;
 
-namespace UWPPopupToolkit.Sample.Controls.PopupControl
+namespace UWPPopupToolkit.Controls.PopupControlControls
 {
     public partial class PopupControl
     {
@@ -37,7 +34,7 @@ namespace UWPPopupToolkit.Sample.Controls.PopupControl
 
         public void ShowPopup()
         {
-            var host = (PopupPresenterHost.PopupPresenterHost)Parent;
+            var host = (PopupPresenterHost)Parent;
             var showsb = new Storyboard() { Duration = ShowAnimationDuration };
             switch (ShowAnimation)
             {
@@ -104,7 +101,7 @@ namespace UWPPopupToolkit.Sample.Controls.PopupControl
 
         public async Task ShowPopupAsync()
         {
-            var host = (PopupPresenterHost.PopupPresenterHost)Parent;
+            var host = (PopupPresenterHost)Parent;
             var showsb = new Storyboard() { Duration = ShowAnimationDuration };
             switch (ShowAnimation)
             {
@@ -172,7 +169,7 @@ namespace UWPPopupToolkit.Sample.Controls.PopupControl
 
         public void HidePopup()
         {
-            var host = (PopupPresenterHost.PopupPresenterHost)Parent;
+            var host = (PopupPresenterHost)Parent;
             var HideSb = new Storyboard() { Duration = HideAnimationDuration };
             switch (HideAnimation)
             {
@@ -239,7 +236,7 @@ namespace UWPPopupToolkit.Sample.Controls.PopupControl
 
         public async Task HidePopupAsync()
         {
-            var host = (PopupPresenterHost.PopupPresenterHost)Parent;
+            var host = (PopupPresenterHost)Parent;
             var HideSb = new Storyboard() { Duration = HideAnimationDuration };
             switch (HideAnimation)
             {

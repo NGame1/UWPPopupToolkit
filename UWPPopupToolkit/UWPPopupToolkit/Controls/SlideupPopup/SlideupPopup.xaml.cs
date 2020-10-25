@@ -17,7 +17,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace UWPPopupToolkit.Controls.SlideupPopup
+namespace UWPPopupToolkit.Sample.Controls.SlideupPopup
 {
     public sealed partial class SlideupPopup : UserControl, IDisposable, INotifyPropertyChanged
     {

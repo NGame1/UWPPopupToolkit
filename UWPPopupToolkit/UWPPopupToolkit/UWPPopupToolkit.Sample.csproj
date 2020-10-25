@@ -7,8 +7,8 @@
     <ProjectGuid>{A709A7FF-638E-42F9-B84A-089F98C24440}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UWPPopupToolkit</RootNamespace>
-    <AssemblyName>UWPPopupToolkit</AssemblyName>
+    <RootNamespace>UWPPopupToolkit.Sample</RootNamespace>
+    <AssemblyName>UWPPopupToolkit.Sample</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
@@ -127,21 +127,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PopupControl\PopupControl.Functions.cs" />
-    <Compile Include="Controls\PopupControl\PopupControl.InternalEvents.cs" />
-    <Compile Include="Controls\PopupControl\PopupControl.Properties.cs" />
-    <Compile Include="Controls\PopupControl\PopupControl.xaml.cs">
-      <DependentUpon>PopupControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\PopupPresenterHost\PopupPresenterHost.cs" />
-    <Compile Include="Controls\PopupPresenterHost\PopupPresenterHost.PopupControlFunctions.cs" />
-    <Compile Include="Controls\PopupPresenterHost\PopupPresenterHost.Properties.cs" />
-    <Compile Include="Controls\SlideupPopup\SlideupPopup.Functions.cs" />
-    <Compile Include="Controls\SlideupPopup\SlideupPopup.Properties.cs" />
-    <Compile Include="Controls\SlideupPopup\SlideupPopup.xaml.cs">
-      <DependentUpon>SlideupPopup.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="ListPage2.xaml.cs">
       <DependentUpon>ListPage2.xaml</DependentUpon>
     </Compile>
@@ -182,14 +167,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Controls\PopupControl\PopupControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\SlideupPopup\SlideupPopup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -215,12 +192,11 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\PopupPresenterHost\PopupPresenterHost.SlideupFunctions.cs" />
+    <ProjectReference Include="..\UWPPopupToolkitSDK\UWPPopupToolkitSDK.csproj">
+      <Project>{77194384-97dd-4e86-b8da-82d760c9ce94}</Project>
+      <Name>UWPPopupToolkitSDK</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Controls\SlideupPopup\SlideupPopup.InternalEvents.cs" />
-  </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

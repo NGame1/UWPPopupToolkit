@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace UWPPopupToolkit.Sample.Helpers
+namespace UWPPopupToolkit.Helpers
 {
     public static class Extensions
     {

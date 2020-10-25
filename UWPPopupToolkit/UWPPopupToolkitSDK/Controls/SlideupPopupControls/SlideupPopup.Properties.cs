@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 
-namespace UWPPopupToolkit.Sample.Controls.SlideupPopup
+namespace UWPPopupToolkit.Controls.SlideupPopupControls
 {
     public partial class SlideupPopup
     {

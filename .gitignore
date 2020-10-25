@@ -5,3 +5,8 @@
 /UWPPopupToolkit/UWPPopupToolkit/obj/x86/Debug
 /UWPPopupToolkit/UWPPopupToolkit/bin/x86/Debug
 /UWPPopupToolkit/UWPPopupToolkit/obj
+/UWPPopupToolkit/UWPPopupToolkit/bin/x86/Release
+/UWPPopupToolkit/UWPPopupToolkitSDK/bin/Release
+/UWPPopupToolkit/UWPPopupToolkitSDK/obj
+/UWPPopupToolkit/UWPPopupToolkitSDK/nuget.exe
+*.nupkg

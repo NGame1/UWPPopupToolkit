@@ -1,6 +1,6 @@
 ﻿using Windows.UI.Xaml;
 
-namespace UWPPopupToolkit.Sample.Controls.PopupControl
+namespace UWPPopupToolkit.Controls.PopupControlControls
 {
     public partial class PopupControl
     {

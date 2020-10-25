@@ -1,13 +1,10 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Animations;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using UWPPopupToolkit.Sample.Helpers;
+using UWPPopupToolkit.Helpers;
 using Windows.UI.Xaml;
 
-namespace UWPPopupToolkit.Sample.Controls.SlideupPopup
+namespace UWPPopupToolkit.Controls.SlideupPopupControls
 {
     public partial class SlideupPopup
     {

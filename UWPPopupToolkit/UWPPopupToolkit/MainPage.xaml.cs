@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
-using UWPPopupToolkit.Controls.PopupControl;
-using UWPPopupToolkit.Controls.PopupPresenterHost;
+using UWPPopupToolkit.Controls.PopupControlControls;
+using UWPPopupToolkit.Controls.PopupPresenterHostControls;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace UWPPopupToolkit
+namespace UWPPopupToolkit.Sample
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.

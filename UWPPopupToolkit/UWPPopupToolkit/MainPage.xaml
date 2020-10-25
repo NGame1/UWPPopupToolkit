@@ -1,10 +1,11 @@
 ﻿<Page
-    x:Class="UWPPopupToolkit.MainPage"
+    x:Class="UWPPopupToolkit.Sample.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UWPPopupToolkit"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:custompopups="using:UWPPopupToolkit.Controls.PopupPresenterHost"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:custompopups="using:UWPPopupToolkit.Controls.PopupPresenterHostControls"
     mc:Ignorable="d">
 
     <custompopups:PopupPresenterHost x:Name="Host" Id="MainPageHost">
@@ -15,10 +16,10 @@
                 <Button Click="ShowSlideupPopupHeight200" Content="Show Slideup popup (Height = 300)"/>
                 <Button Click="ShowSlideupPopupNormalSizeAsync" Content="Show Slideup popup (Normal) Async"/>
                 <Button Click="ShowSlideupPopupHeight200Async" Content="Show Slideup popup (Height = 300) Async"/>
-                <Button Click="ShowPopupControl" Content="Show Slideup popup Control"/>
-                <Button Click="ShowPopupControlAsync" Content="Show Slideup popup Control Async"/>
-                <Button Click="ShowPopupControlCustomClose" Content="Show Slideup popup Control Custom Close"/>
-                <Button Click="ShowPopupControlAnimation" Content="Show Slideup popup Animation"/>
+                <Button Click="ShowPopupControl" Content="Show PopupControl"/>
+                <Button Click="ShowPopupControlAsync" Content="Show PopupControl Async"/>
+                <Button Click="ShowPopupControlCustomClose" Content="Show PopupControl Custom Close"/>
+                <Button Click="ShowPopupControlAnimation" Content="Show PopupControl Animation"/>
             </StackPanel>
         </Grid>
     </custompopups:PopupPresenterHost>

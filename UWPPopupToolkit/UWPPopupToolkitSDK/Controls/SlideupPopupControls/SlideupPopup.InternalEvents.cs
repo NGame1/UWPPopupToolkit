@@ -1,15 +1,11 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Animations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UWPPopupToolkit.Controls.PopupPresenterHostControls;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 
-namespace UWPPopupToolkit.Sample.Controls.SlideupPopup
+namespace UWPPopupToolkit.Controls.SlideupPopupControls
 {
     public partial class SlideupPopup
     {
@@ -45,7 +41,7 @@ namespace UWPPopupToolkit.Sample.Controls.SlideupPopup
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            var Host = (PopupPresenterHost.PopupPresenterHost)this.Parent;
+            var Host = (PopupPresenterHost)this.Parent;
             var da = ShowPopupStoryboard.Children[0] as DoubleAnimation;
             da.From = Host.ActualHeight;
             if (!double.IsNaN(PopupHeight))

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 
-namespace UWPPopupToolkit.Sample.Controls.PopupControl
+namespace UWPPopupToolkit.Controls.PopupControlControls
 {
     public enum PopupControlAnimationKind
     {

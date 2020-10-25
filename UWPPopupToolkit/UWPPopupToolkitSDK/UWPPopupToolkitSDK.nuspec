@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>UWPPopupToolkit</id>
+    <version>0.0.0.5-rc</version>
+    <title>UWPPopupToolkit</title>
+    <authors>AliNGame</authors>
+    <owners>AliNGame</owners>
+    <projectUrl>https://github.com/NGame1/UWPPopupToolkit</projectUrl>
+    <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>
+A high performance and easy to use popup UI toolkit for UWP(Universal Windows Platform).
+This package will allows you to simply create great looking popups and dialogs easier than ever
+    </summary>
+    <description>
+A high performance and easy to use popup UI toolkit for UWP(Universal Windows Platform).
+This package will allows you to simply create great looking popups and dialogs easier than ever
+    </description>
+    <releaseNotes>First NuGet package release</releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>UWP Popup UI Toolkit Dialog</tags>
+  </metadata>
+</package>

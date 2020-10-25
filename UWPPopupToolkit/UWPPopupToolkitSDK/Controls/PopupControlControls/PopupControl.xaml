@@ -1,5 +1,5 @@
 ﻿<UserControl Loaded="UserControl_Loaded"
-    x:Class="UWPPopupToolkit.Sample.Controls.PopupControl.PopupControl"
+    x:Class="UWPPopupToolkit.Controls.PopupControlControls.PopupControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UWPPopupToolkit.Sample.Controls.PopupControl"

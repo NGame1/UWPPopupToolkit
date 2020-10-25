@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace UWPPopupToolkit.Controls.PopupPresenterHost
+namespace UWPPopupToolkit.Sample.Controls.PopupPresenterHost
 {
     public partial class PopupPresenterHost : Grid, INotifyPropertyChanged
     {
