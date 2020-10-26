@@ -10,6 +10,11 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
 {
     public partial class PopupControl
     {
+        /// <summary>
+        /// This method will helps to be able to hide popup from the content
+        /// </summary>
+        /// <param name="control">While you are inside the content page/usercontrol of a popup simply use this keyword.</param>
+        /// <returns></returns>
         public static Guid GetIdentifier(FrameworkElement control)
         {
             var parent = control;

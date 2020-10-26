@@ -10,6 +10,11 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
 {
     public sealed partial class SlideupPopup : UserControl, IDisposable, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Slideup (e.g. Instagram Share) popup
+        /// </summary>
+        /// <param name="PopupContent">Content you want to show in the popup</param>
+        /// <param name="args">Pass Cunstructor arguments needed for PopupContent.</param>
         public SlideupPopup(Type PopupContent, params object[] args)
         {
             this.InitializeComponent();

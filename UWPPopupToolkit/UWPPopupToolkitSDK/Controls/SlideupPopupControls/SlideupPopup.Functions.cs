@@ -8,16 +8,28 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
 {
     public partial class SlideupPopup
     {
+        /// <summary>
+        /// This method will pops up the popup frame Asynchronously
+        /// </summary>
+        /// <returns></returns>
         public async Task ShowPopupAsync()
         {
             await ShowPopupStoryboard.BeginAsync();
         }
 
+        /// <summary>
+        /// This method will pops up the popup frame Syncronosly
+        /// </summary>
         public async void ShowPopup()
         {
             await ShowPopupStoryboard.BeginAsync();
         }
 
+        /// <summary>
+        /// This method will helps to be able to hide popup from the content
+        /// </summary>
+        /// <param name="control">While you are inside the content page/usercontrol of a popup simply use this keyword.</param>
+        /// <returns></returns>
         public static Guid GetIdentifier(FrameworkElement control)
         {
             var parent = control;
@@ -35,6 +47,9 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
 
         }
 
+        /// <summary>
+        /// Hides and dispose the popup and the content inside
+        /// </summary>
         public async void Dispose()
         {
             if (_isdisposing || HidePopupStoryboard == null) return;

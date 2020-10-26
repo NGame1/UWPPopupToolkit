@@ -7,6 +7,9 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
 {
     public partial class SlideupPopup
     {
+        /// <summary>
+        /// Height of the result popup
+        /// </summary>
         public double PopupHeight
         {
             get
@@ -21,6 +24,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PopupHeight"));
             }
         }
+
         public static readonly DependencyProperty PopupHeightProperty = DependencyProperty.Register(
          "PopupHeight",
          typeof(double),
@@ -30,10 +34,19 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Unique identifier of the popup that helps in finding and hiding the active popups
+        /// </summary>
         public Guid Identifier { get; } = Guid.NewGuid();
+        /// <summary>
+        /// Duration of the Show / Hide animations. Default value is 300 Milliseconds.
+        /// </summary>
         public Duration AnimationDuration { get; set; } = new Duration(TimeSpan.FromMilliseconds(300));
         Point _startPoint;
         bool _isdisposing = false;
+        /// <summary>
+        /// Type of the activated content in the popup
+        /// </summary>
         public Type PopupContentType { get; }
     }
 }

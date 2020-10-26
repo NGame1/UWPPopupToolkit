@@ -13,7 +13,12 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         {
             _startPoint = e.Position;
         }
-        
+
+        /// <summary>
+        /// This method will be handle the slideup popup control up/down maniption for helping user to hide the popup
+        /// </summary>
+        /// <param name="sender">Not important</param>
+        /// <param name="e">Not important</param>
         private void _popup_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             var Host = (FrameworkElement)this.Parent;
@@ -26,6 +31,11 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
             else _translatetransform.TranslateY += e.Delta.Translation.Y;
         }
 
+        /// <summary>
+        /// This event will complete the manipulation of the user. This will completes hide or reverts the slidedown 
+        /// </summary>
+        /// <param name="sender">Not important</param>
+        /// <param name="e">Not important</param>
         private async void _popup_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
             var Host = (FrameworkElement)this.Parent;
@@ -39,6 +49,11 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
             else await ShowPopupStoryboard.BeginAsync();
         }
 
+        /// <summary>
+        /// Initializing some little things of the animations
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             var Host = (PopupPresenterHost)this.Parent;
@@ -55,6 +70,11 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
             da.From = null;
         }
 
+        /// <summary>
+        /// This method will tries to dispose the object
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
             try

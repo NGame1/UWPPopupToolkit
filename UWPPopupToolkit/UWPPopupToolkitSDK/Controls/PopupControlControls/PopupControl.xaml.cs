@@ -10,6 +10,11 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
 {
     public sealed partial class PopupControl : UserControl, IDisposable, INotifyPropertyChanged
     {
+        /// <summary>
+        /// A simple and free to shape popup control
+        /// </summary>
+        /// <param name="PopupContent">Content you want to show in the popup</param>
+        /// <param name="args">Pass Cunstructor arguments needed for PopupContent.</param>
         public PopupControl(Type PopupContent, params object[] args)
         {
             this.InitializeComponent();
