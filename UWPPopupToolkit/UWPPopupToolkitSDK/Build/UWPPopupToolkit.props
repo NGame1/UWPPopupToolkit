@@ -1,0 +1,9 @@
+﻿<Project>
+    <Target Name="OutputExtraFiles" BeforeTargets="Build">
+        <ItemGroup>
+            <File Include="$(MSBuildThisFileDirectory)..\File\**\*.*"></File>
+        </ItemGroup>
+      <Copy SourceFiles="@(File)" DestinationFiles="$(TargetDir)Appx\%(RecursiveDir)%(Filename)%(Extension)"></Copy>
+        <!--<Copy SourceFiles="@(File)" DestinationFiles="$(TargetDir)\%(RecursiveDir)%(Filename)%(Extension)"></Copy>-->  
+    </Target>
+</Project>

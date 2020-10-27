@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,9 +34,11 @@ namespace UWPPopupToolkit.Sample
             this.UnhandledException += App_UnhandledException;
         }
 
-        private void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        private async void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
+            var ex = e.Exception;
             e.Handled = true;
+            await new MessageDialog($"{ex.Message}{Environment.NewLine}{ex.StackTrace}").ShowAsync();
         }
 
         /// <summary>

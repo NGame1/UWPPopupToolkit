@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UWPPopupToolkit</name>
+    </assembly>
+    <members>
+        <member name="M:UWPPopupToolkit.Controls.MessageBoxControl.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.MessageBoxControl.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.PopupControlControls.PopupControl.GetIdentifier(Windows.UI.Xaml.FrameworkElement)">
+            <summary>
+            This method will helps to be able to hide popup from the content
+            </summary>
+            <param name="control">While you are inside the content page/usercontrol of a popup simply use this keyword.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.PopupControlControls.PopupControl.UserControl_Loaded(System.Object,Windows.UI.Xaml.RoutedEventArgs)">
+            <summary>
+            Sets the correct margin for the content
+            </summary>
+            <param name="sender">Not important</param>
+            <param name="e">Not important</param>
+        </member>
+        <member name="P:UWPPopupToolkit.Controls.PopupControlControls.PopupControl.Identifier">
+            <summary>
+            Unique identifier of the popup that helps in finding and hiding the active popups
+            </summary>
+        </member>
+        <member name="P:UWPPopupToolkit.Controls.PopupControlControls.PopupControl.PopupContentType">
+            <summary>
+            Type of the activated content in the popup
+            </summary>
+        </member>
+        <member name="P:UWPPopupToolkit.Controls.PopupControlControls.PopupControl.ContentMargin">
+            <summary>
+            Margin of the content from sides of the PopupPresenterHost
+            </summary>
+        </member>
+        <member name="P:UWPPopupToolkit.Controls.PopupControlControls.PopupControl.ShowAnimationDuration">
+            <summary>
+            Duration of showing the popup
+            </summary>
+        </member>
+        <member name="P:UWPPopupToolkit.Controls.PopupControlControls.PopupControl.ShowAnimation">
+            <summary>
+            Animation of showing the popup. Note: do not use fade out for the show animation
+            </summary>
+        </member>
+        <member name="P:UWPPopupToolkit.Controls.PopupControlControls.PopupControl.HideAnimationDuration">
+            <summary>
+            Duration of hiding the popup
+            </summary>
+        </member>
+        <member name="P:UWPPopupToolkit.Controls.PopupControlControls.PopupControl.HideAnimation">
+            <summary>
+            Animation of hiding the popup. Note: do not use fade in for the show animation
+            </summary>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.PopupControlControls.PopupControl.#ctor(System.Type,System.Object[])">
+            <summary>
+            A simple and free to shape popup control
+            </summary>
+            <param name="PopupContent">Content you want to show in the popup</param>
+            <param name="args">Pass Cunstructor arguments needed for PopupContent.</param>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.PopupControlControls.PopupControl.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.PopupControlControls.PopupControl.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="T:UWPPopupToolkit.Controls.PopupControlControls.PopupControlAnimationKind">
+            <summary>
+            All kinds of the supported animations for showing/hiding the popup
+            </summary>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.ShowPopupAsync">
+            <summary>
+            This method will pops up the popup frame Asynchronously
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.ShowPopup">
+            <summary>
+            This method will pops up the popup frame Syncronosly
+            </summary>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.GetIdentifier(Windows.UI.Xaml.FrameworkElement)">
+            <summary>
+            This method will helps to be able to hide popup from the content
+            </summary>
+            <param name="control">While you are inside the content page/usercontrol of a popup simply use this keyword.</param>
+            <returns></returns>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.Dispose">
+            <summary>
+            Hides and dispose the popup and the content inside
+            </summary>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup._popup_ManipulationDelta(System.Object,Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs)">
+            <summary>
+            This method will be handle the slideup popup control up/down maniption for helping user to hide the popup
+            </summary>
+            <param name="sender">Not important</param>
+            <param name="e">Not important</param>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup._popup_ManipulationCompleted(System.Object,Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs)">
+            <summary>
+            This event will complete the manipulation of the user. This will completes hide or reverts the slidedown 
+            </summary>
+            <param name="sender">Not important</param>
+            <param name="e">Not important</param>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.UserControl_Loaded(System.Object,Windows.UI.Xaml.RoutedEventArgs)">
+            <summary>
+            Initializing some little things of the animations
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.UserControl_Unloaded(System.Object,Windows.UI.Xaml.RoutedEventArgs)">
+            <summary>
+            This method will tries to dispose the object
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.PopupHeight">
+            <summary>
+            Height of the result popup
+            </summary>
+        </member>
+        <member name="P:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.Identifier">
+            <summary>
+            Unique identifier of the popup that helps in finding and hiding the active popups
+            </summary>
+        </member>
+        <member name="P:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.AnimationDuration">
+            <summary>
+            Duration of the Show / Hide animations. Default value is 300 Milliseconds.
+            </summary>
+        </member>
+        <member name="P:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.PopupContentType">
+            <summary>
+            Type of the activated content in the popup
+            </summary>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.#ctor(System.Type,System.Object[])">
+            <summary>
+            Slideup (e.g. Instagram Share) popup
+            </summary>
+            <param name="PopupContent">Content you want to show in the popup</param>
+            <param name="args">Pass Cunstructor arguments needed for PopupContent.</param>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:UWPPopupToolkit.Controls.SlideupPopupControls.SlideupPopup.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:UWPPopupToolkit.UWPPopupToolkitSDK_XamlTypeInfo.XamlMetaDataProvider.GetXamlType(System.Type)">
+            <summary>
+            GetXamlType(Type)
+            </summary>
+        </member>
+        <member name="M:UWPPopupToolkit.UWPPopupToolkitSDK_XamlTypeInfo.XamlMetaDataProvider.GetXamlType(System.String)">
+            <summary>
+            GetXamlType(String)
+            </summary>
+        </member>
+        <member name="M:UWPPopupToolkit.UWPPopupToolkitSDK_XamlTypeInfo.XamlMetaDataProvider.GetXmlnsDefinitions">
+            <summary>
+            GetXmlnsDefinitions()
+            </summary>
+        </member>
+    </members>
+</doc>

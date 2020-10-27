@@ -32,11 +32,18 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
             
         }
 
+        /// <summary>
+        /// Dispose the object 
+        /// </summary>
         public void Dispose()
         {
             
         }
 
+        /// <summary>
+        /// This method will shows the popup frame Syncronosly
+        /// </summary>
+        /// <returns></returns>
         public void ShowPopup()
         {
             var host = (PopupPresenterHost)Parent;
@@ -98,12 +105,23 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     }
                     break;
                 case PopupControlAnimationKind.None:
+                    {
+                        var fadein = new DoubleAnimation() { Duration = new Duration(TimeSpan.FromMilliseconds(1)), From = 0, To = 1 };
+                        Storyboard.SetTarget(fadein, _content);
+                        Storyboard.SetTargetProperty(fadein, "(UIElement.Opacity)");
+                        showsb.Children.Add(fadein);
+                        showsb.Begin();
+                    }
                     break;
                 default:
                     break;
             }
         }
 
+        /// <summary>
+        /// This method will shows the popup frame Asynchronously
+        /// </summary>
+        /// <returns></returns>
         public async Task ShowPopupAsync()
         {
             var host = (PopupPresenterHost)Parent;
@@ -165,6 +183,13 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     }
                     break;
                 case PopupControlAnimationKind.None:
+                    {
+                        var fadein = new DoubleAnimation() { Duration = new Duration(TimeSpan.FromMilliseconds(1)), From = 0, To = 1 };
+                        Storyboard.SetTarget(fadein, _content);
+                        Storyboard.SetTargetProperty(fadein, "(UIElement.Opacity)");
+                        showsb.Children.Add(fadein);
+                        await showsb.BeginAsync();
+                    }
                     break;
                 default:
                     break;
@@ -172,6 +197,10 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
         }
 
 
+        /// <summary>
+        /// This method will hides the popup frame Syncronosly
+        /// </summary>
+        /// <returns></returns>
         public void HidePopup()
         {
             var host = (PopupPresenterHost)Parent;
@@ -189,7 +218,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     break;
                 case PopupControlAnimationKind.FadeOut:
                     {
-                        var fadein = new DoubleAnimation() { Duration = ShowAnimationDuration, To = 0 };
+                        var fadein = new DoubleAnimation() { Duration = HideAnimationDuration, To = 0 };
                         Storyboard.SetTarget(fadein, _content);
                         Storyboard.SetTargetProperty(fadein, "(UIElement.Opacity)");
                         HideSb.Children.Add(fadein);
@@ -198,7 +227,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     break;
                 case PopupControlAnimationKind.SlideUp:
                     {
-                        var fadein = new DoubleAnimation() { Duration = ShowAnimationDuration, To = -(host.ActualHeight) };
+                        var fadein = new DoubleAnimation() { Duration = HideAnimationDuration, To = -(host.ActualHeight) };
                         Storyboard.SetTarget(fadein, _content);
                         Storyboard.SetTargetProperty(fadein, "(UIElement.RenderTransform).(CompositeTransform.TranslateY)");
                         HideSb.Children.Add(fadein);
@@ -207,7 +236,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     break;
                 case PopupControlAnimationKind.SlideRight:
                     {
-                        var fadein = new DoubleAnimation() { Duration = ShowAnimationDuration, To = host.ActualWidth };
+                        var fadein = new DoubleAnimation() { Duration = HideAnimationDuration, To = host.ActualWidth };
                         Storyboard.SetTarget(fadein, _content);
                         Storyboard.SetTargetProperty(fadein, "(UIElement.RenderTransform).(CompositeTransform.TranslateX)");
                         HideSb.Children.Add(fadein);
@@ -216,7 +245,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     break;
                 case PopupControlAnimationKind.SlideLeft:
                     {
-                        var fadein = new DoubleAnimation() { Duration = ShowAnimationDuration, To = -(host.ActualWidth) };
+                        var fadein = new DoubleAnimation() { Duration = HideAnimationDuration, To = -(host.ActualWidth) };
                         Storyboard.SetTarget(fadein, _content);
                         Storyboard.SetTargetProperty(fadein, "(UIElement.RenderTransform).(CompositeTransform.TranslateX)");
                         HideSb.Children.Add(fadein);
@@ -225,7 +254,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     break;
                 case PopupControlAnimationKind.SlideBottom:
                     {
-                        var fadein = new DoubleAnimation() { Duration = ShowAnimationDuration, To = host.ActualHeight };
+                        var fadein = new DoubleAnimation() { Duration = HideAnimationDuration, To = host.ActualHeight };
                         Storyboard.SetTarget(fadein, _content);
                         Storyboard.SetTargetProperty(fadein, "(UIElement.RenderTransform).(CompositeTransform.TranslateY)");
                         HideSb.Children.Add(fadein);
@@ -233,12 +262,23 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     }
                     break;
                 case PopupControlAnimationKind.None:
+                    {
+                        var fadein = new DoubleAnimation() { Duration = new Duration(TimeSpan.FromMilliseconds(1)), To = 0 };
+                        Storyboard.SetTarget(fadein, _content);
+                        Storyboard.SetTargetProperty(fadein, "(UIElement.Opacity)");
+                        HideSb.Children.Add(fadein);
+                        HideSb.Begin();
+                    }
                     break;
                 default:
                     break;
             }
         }
 
+        /// <summary>
+        /// This method will hides the popup frame Asynchronously
+        /// </summary>
+        /// <returns></returns>
         public async Task HidePopupAsync()
         {
             var host = (PopupPresenterHost)Parent;
@@ -256,7 +296,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     break;
                 case PopupControlAnimationKind.FadeOut:
                     {
-                        var fadein = new DoubleAnimation() { Duration = ShowAnimationDuration, To = 0 };
+                        var fadein = new DoubleAnimation() { Duration = HideAnimationDuration, To = 0 };
                         Storyboard.SetTarget(fadein, _content);
                         Storyboard.SetTargetProperty(fadein, "(UIElement.Opacity)");
                         HideSb.Children.Add(fadein);
@@ -265,7 +305,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     break;
                 case PopupControlAnimationKind.SlideUp:
                     {
-                        var fadein = new DoubleAnimation() { Duration = ShowAnimationDuration, To = -(host.ActualHeight) };
+                        var fadein = new DoubleAnimation() { Duration = HideAnimationDuration, To = -(host.ActualHeight) };
                         Storyboard.SetTarget(fadein, _content);
                         Storyboard.SetTargetProperty(fadein, "(UIElement.RenderTransform).(CompositeTransform.TranslateY)");
                         HideSb.Children.Add(fadein);
@@ -274,7 +314,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     break;
                 case PopupControlAnimationKind.SlideRight:
                     {
-                        var fadein = new DoubleAnimation() { Duration = ShowAnimationDuration, To = host.ActualWidth };
+                        var fadein = new DoubleAnimation() { Duration = HideAnimationDuration, To = host.ActualWidth };
                         Storyboard.SetTarget(fadein, _content);
                         Storyboard.SetTargetProperty(fadein, "(UIElement.RenderTransform).(CompositeTransform.TranslateX)");
                         HideSb.Children.Add(fadein);
@@ -283,7 +323,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     break;
                 case PopupControlAnimationKind.SlideLeft:
                     {
-                        var fadein = new DoubleAnimation() { Duration = ShowAnimationDuration, To = -(host.ActualWidth) };
+                        var fadein = new DoubleAnimation() { Duration = HideAnimationDuration, To = -(host.ActualWidth) };
                         Storyboard.SetTarget(fadein, _content);
                         Storyboard.SetTargetProperty(fadein, "(UIElement.RenderTransform).(CompositeTransform.TranslateX)");
                         HideSb.Children.Add(fadein);
@@ -292,7 +332,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     break;
                 case PopupControlAnimationKind.SlideBottom:
                     {
-                        var fadein = new DoubleAnimation() { Duration = ShowAnimationDuration, To = host.ActualHeight };
+                        var fadein = new DoubleAnimation() { Duration = HideAnimationDuration, To = host.ActualHeight };
                         Storyboard.SetTarget(fadein, _content);
                         Storyboard.SetTargetProperty(fadein, "(UIElement.RenderTransform).(CompositeTransform.TranslateY)");
                         HideSb.Children.Add(fadein);
@@ -300,6 +340,13 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                     }
                     break;
                 case PopupControlAnimationKind.None:
+                    {
+                        var fadein = new DoubleAnimation() { Duration = new Duration(TimeSpan.FromMilliseconds(1)), To = 0 };
+                        Storyboard.SetTarget(fadein, _content);
+                        Storyboard.SetTargetProperty(fadein, "(UIElement.Opacity)");
+                        HideSb.Children.Add(fadein);
+                        await HideSb.BeginAsync();
+                    }
                     break;
                 default:
                     break;
