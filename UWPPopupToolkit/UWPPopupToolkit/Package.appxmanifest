@@ -8,8 +8,8 @@
 
   <Identity
     Name="4d4625d0-7c2c-4428-b3f9-94774edc2f11"
-    Publisher="CN=Ali"
-    Version="1.0.0.0" />
+    Publisher="CN=983BF5D2-5CC3-402A-B46D-46C1F70449F9"
+    Version="0.1.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="4d4625d0-7c2c-4428-b3f9-94774edc2f11" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

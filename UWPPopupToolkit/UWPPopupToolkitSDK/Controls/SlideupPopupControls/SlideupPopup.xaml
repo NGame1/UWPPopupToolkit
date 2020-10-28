@@ -8,7 +8,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid x:Name="_popup" Opacity="0" CornerRadius="25,25,0,0" Background="White">
+    <Grid x:Name="_popup" Opacity="0" CornerRadius="25,25,0,0" Background="{x:Bind BackgroundColor}">
         <Grid.Resources>
             <Storyboard x:Key="HidePopupStoryboard" x:Name="HidePopupStoryboard" Duration="0:0:0.3" Storyboard.TargetName="_popup">
                 <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="2000" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>

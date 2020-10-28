@@ -2,9 +2,11 @@
 using System.Threading.Tasks;
 using UWPPopupToolkit.Controls.PopupControlControls;
 using UWPPopupToolkit.Controls.PopupPresenterHostControls;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -24,7 +26,7 @@ namespace UWPPopupToolkit.Sample
         {
             var g = PopupPresenterHost.ShowSlideupPopup(typeof(ListPage));
         }
-
+        
         private void ShowSlideupPopupHeight200(object sender, RoutedEventArgs e)
         {
             var g = PopupPresenterHost.ShowSlideupPopup(typeof(ListPage), 300);

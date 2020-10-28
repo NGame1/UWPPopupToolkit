@@ -6,6 +6,9 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
 {
     public partial class PopupPresenterHost
     {
+        /// <summary>
+        /// Id of the host control
+        /// </summary>
         public string Id
         {
             get
@@ -20,6 +23,7 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
             }
         }
+
         public static readonly DependencyProperty IdProperty = DependencyProperty.Register(
          "Id",
          typeof(string),

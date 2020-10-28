@@ -1,7 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using Windows.Foundation;
+using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
 
 namespace UWPPopupToolkit.Controls.SlideupPopupControls
 {
@@ -24,6 +26,19 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("PopupHeight"));
             }
         }
+
+        /// <summary>
+        /// Gets or sets the background color of the popup
+        /// </summary>
+        public Brush BackgroundColor { get; set; } = new SolidColorBrush(Colors.White);
+
+
+        public static readonly DependencyProperty BackgroundColorProperty = DependencyProperty.Register(
+         "BackgroundColor",
+         typeof(Brush),
+         typeof(SlideupPopup),
+         new PropertyMetadata(null)
+        );
 
         public static readonly DependencyProperty PopupHeightProperty = DependencyProperty.Register(
          "PopupHeight",
