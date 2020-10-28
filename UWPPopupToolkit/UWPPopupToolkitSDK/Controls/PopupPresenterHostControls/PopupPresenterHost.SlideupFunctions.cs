@@ -14,12 +14,13 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
         /// </summary>
         /// <param name="content">Content you want to be presented inside the popup. Simply use typeof(YourUserControl)</param>
         /// <param name="ContentHeight">Height of the result popup</param>
+        /// <param name="PopupWidth">Width of the result popup</param>
         /// <param name="Host_Id">Id of the control that will host the new popup</param>
         /// <param name="OpenNewIfExists">Allows to open more than one popup with the same content</param>
         /// <param name="BgColor">Background Color of the final popup (default is White)</param>
         /// <param name="args">Arguments needed on the Content ctor</param>
         /// <returns></returns>
-        public static async Task<Guid> ShowSlideupPopupAsync(Type content, double ContentHeight = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, Brush BgColor = null, params object[] args)
+        public static async Task<Guid> ShowSlideupPopupAsync(Type content, double ContentHeight = double.NaN, double PopupWidth = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, Brush BgColor = null, params object[] args)
         {
             PopupPresenterHost Host = null;
             if (Host_Id == null)
@@ -30,6 +31,7 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
                     throw new Exception("An existing popup of this type is currently open.");
             var p = new SlideupPopup(content, args) { PopupHeight = ContentHeight };
             if(BgColor != null) p.BackgroundColor = BgColor;
+            if (!double.IsNaN(PopupWidth)) p.PopupWidth = PopupWidth;
             Host.Children.Add(p);
             await p.ShowPopupAsync();
             return p.Identifier;
@@ -40,12 +42,13 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
         /// </summary>
         /// <param name="content">Content you want to be presented inside the popup. Simply use typeof(YourUserControl)</param>
         /// <param name="ContentHeight">Height of the result popup. </param>
+        /// <param name="PopupWidth">Width of the result popup. </param>
         /// <param name="Host_Id">Id of the control that will host the new popup</param>
         /// <param name="OpenNewIfExists">Allows to open more than one popup with the same content</param>
         /// <param name="BgColor">Background Color of the final popup (default is White)</param>
         /// <param name="args">Arguments needed on the Content ctor</param>
         /// <returns></returns>
-        public static Guid ShowSlideupPopup(Type content, double ContentHeight = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, Brush BgColor = null, params object[] args)
+        public static Guid ShowSlideupPopup(Type content, double ContentHeight = double.NaN, double PopupWidth = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, Brush BgColor = null, params object[] args)
         {
             PopupPresenterHost Host = null;
             if (Host_Id == null)
@@ -56,6 +59,7 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
                     throw new Exception("An existing popup of this type is currently open.");
             var p = new SlideupPopup(content, args) { PopupHeight = ContentHeight };
             if (BgColor != null) p.BackgroundColor = BgColor;
+            if (!double.IsNaN(PopupWidth)) p.PopupWidth = PopupWidth;
             Host.Children.Add(p);
             p.ShowPopup();
             return p.Identifier;

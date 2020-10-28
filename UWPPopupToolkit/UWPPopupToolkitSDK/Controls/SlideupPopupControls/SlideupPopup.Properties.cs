@@ -32,6 +32,17 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         /// </summary>
         public Brush BackgroundColor { get; set; } = new SolidColorBrush(Colors.White);
 
+        /// <summary>
+        /// result popup width witch is full width 
+        /// </summary>
+        public double PopupWidth { get; set; } = double.NaN;
+
+        public static readonly DependencyProperty PopupWidthProperty = DependencyProperty.Register(
+         "PopupWidth",
+         typeof(double),
+         typeof(SlideupPopup),
+         new PropertyMetadata(null)
+        );
 
         public static readonly DependencyProperty BackgroundColorProperty = DependencyProperty.Register(
          "BackgroundColor",

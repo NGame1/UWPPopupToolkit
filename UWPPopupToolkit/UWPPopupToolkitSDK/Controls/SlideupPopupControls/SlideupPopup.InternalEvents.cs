@@ -67,6 +67,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
                 da.To = Padding;
             }
             else ContentPresentationGrid.Margin = new Thickness(0, 0, 0, 100);
+            if (!double.IsNaN(PopupWidth)) Width = PopupWidth;
             da.From = null;
         }
 

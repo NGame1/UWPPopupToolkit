@@ -24,6 +24,7 @@ namespace UWPPopupToolkit.Controls
                     var initialize = ContentType.GetMethod("InitializeComponent");
                     initialize.Invoke(uicontent, null);
                     _content.Children.Add(uicontent);
+                    _content.Visibility = Visibility.Visible;
                 }
             }
         }
