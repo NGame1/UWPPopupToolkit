@@ -28,10 +28,9 @@ The <b>content</b> parameter is the Type of the UserControl or the page that you
 <b>args</b> parameter will be used when your content constructor (ctor) needs some parameters to be initialized. You can pass them using the args parameter and we will create instance of your control and dispose it after hiding the popup. 
 
 # NuGet Packages
-NuGet packages are not functioning normally at this time. Please use the class library instead.
 | Target | Branch | Recommended package version |
 | ------ | ------ | ------ |
-| Release Condidate | RC/0.0.0.5 | [![NuGet](https://img.shields.io/nuget/vpre/UWPPopupToolkit)](https://www.nuget.org/packages/UWPPopupToolkit/0.0.0.5-rc) |
+| Stable | SR/0.1.1.1 | [![NuGet](https://img.shields.io/nuget/vpre/UWPPopupToolkit)](https://www.nuget.org/packages/UWPPopupToolkit/0.0.0.5-rc) |
 
 # Currently supported popup types
 Currently, We support Slideup Popup type which is similar to Instagram's popups. 
