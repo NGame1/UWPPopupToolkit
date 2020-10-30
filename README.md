@@ -30,7 +30,7 @@ The <b>content</b> parameter is the Type of the UserControl or the page that you
 # NuGet Packages
 | Target | Branch | Recommended package version |
 | ------ | ------ | ------ |
-| Stable | SR/0.1.1.1 | [![NuGet](https://img.shields.io/nuget/vpre/UWPPopupToolkit)](https://www.nuget.org/packages/UWPPopupToolkit/0.0.0.5-rc) |
+| Stable | SR/0.1.1.2 | [![NuGet](https://img.shields.io/nuget/vpre/UWPPopupToolkit)](https://www.nuget.org/packages/UWPPopupToolkit) |
 
 # Currently supported popup types
 Currently, We support Slideup Popup type which is similar to Instagram's popups. 
