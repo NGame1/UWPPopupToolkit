@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Linq;
 using UWPPopupToolkit.Controls.PopupControlControls;
 using UWPPopupToolkit.Controls.SlideupPopupControls;
 using Windows.UI.Xaml.Controls;
