@@ -13,12 +13,33 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
     /// </summary>
     public enum PopupControlAnimationKind
     {
+        /// <summary>
+        /// Increase the Opacity to 1
+        /// </summary>
         FadeIn,
+        /// <summary>
+        /// Decrease the Opacity to 0
+        /// </summary>
         FadeOut,
+        /// <summary>
+        /// Slides from Bottom of the screen
+        /// </summary>
         SlideUp,
+        /// <summary>
+        /// Slides from the right edge of the screen
+        /// </summary>
         SlideRight,
+        /// <summary>
+        /// Slides from the left edge of the screen
+        /// </summary>
         SlideLeft,
+        /// <summary>
+        /// Slides from top of the screen
+        /// </summary>
         SlideBottom,
+        /// <summary>
+        /// No animation, just show/hide
+        /// </summary>
         None
     }
 
@@ -94,7 +115,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
         }
 
         /// <summary>
-        /// Animation of hiding the popup. Note: do not use fade in for the show animation
+        /// Animation of hiding the popup. Note: do not use fade in for the hide animation
         /// </summary>
         public PopupControlAnimationKind HideAnimation
         {

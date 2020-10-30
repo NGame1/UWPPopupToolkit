@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <ListView IsItemClickEnabled="True" SelectionMode="None">
+    <ListView IsItemClickEnabled="True" SelectionMode="None" Background="Black">
         <ListView.ItemContainerStyle>
             <Style TargetType="ListViewItem">
                 <Setter Property="Margin" Value="2"/>

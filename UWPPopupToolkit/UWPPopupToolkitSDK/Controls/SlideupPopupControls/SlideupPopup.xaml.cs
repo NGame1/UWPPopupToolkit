@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Reflection;
+using UWPPopupToolkit.Helpers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -30,6 +32,11 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
                 var initialize = PopupContent.GetMethod("InitializeComponent");
                 initialize.Invoke(uicontent, null);
                 ContentPresentationGrid.Children.Add(uicontent);
+                if(BackgroundColor == null)
+                {
+                    var b = (uicontent.GetPropertyValue("Background")) as Brush;
+                    BackgroundColor = b;
+                }
             }
         }
 

@@ -30,7 +30,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         /// <summary>
         /// Gets or sets the background color of the popup
         /// </summary>
-        public Brush BackgroundColor { get; set; } = new SolidColorBrush(Colors.White);
+        public Brush BackgroundColor { get; set; } = null;
 
         /// <summary>
         /// result popup width witch is full width 

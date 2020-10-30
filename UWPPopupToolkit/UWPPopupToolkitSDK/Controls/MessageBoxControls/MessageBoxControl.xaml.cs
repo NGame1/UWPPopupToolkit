@@ -7,26 +7,48 @@ using Windows.UI.Xaml.Controls;
 
 namespace UWPPopupToolkit.Controls
 {
-    public sealed partial class MessageBoxControl : UserControl
+    public sealed partial class MessageBoxControl : UserControl, IDisposable
     {
-        public MessageBoxControl()
+        public MessageBoxControl(Type PopupContent, params object[] args)
         {
             this.InitializeComponent();
-            if (ContentType is not null)
+            if (PopupContent is not null)
             {
-                var content = Activator.CreateInstance(ContentType);
+                var content = Activator.CreateInstance(PopupContent);
                 if (content is not FrameworkElement uicontent)
                 {
                     throw new ArgumentException("PopupContent must return a FrameworkElement object.", "PopupContent");
                 }
                 else
                 {
-                    var initialize = ContentType.GetMethod("InitializeComponent");
+                    var initialize = PopupContent.GetMethod("InitializeComponent");
                     initialize.Invoke(uicontent, null);
                     _content.Children.Add(uicontent);
                     _content.Visibility = Visibility.Visible;
+                    ContentType = PopupContent;
                 }
             }
+        }
+
+        /// <summary>
+        /// Dispose the instance and content of the message box
+        /// </summary>
+        public void Dispose()
+        {
+            ShowAnimation = MessageBoxAnimationKind.None;
+            HideAnimation = MessageBoxAnimationKind.None;
+            _root = null;
+            _content = null;
+            if (ContentType is IDisposable disposable)
+                disposable.Dispose();
+            ContentType = null;
+            Content = null;
+            MessageContent = null;
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

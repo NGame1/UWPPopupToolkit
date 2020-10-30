@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>UWPPopupToolkit</id>
-    <version>0.1.1.1</version>
+    <version>0.1.1.2</version>
     <title>UWPPopupToolkit</title>
     <authors>AliNGame</authors>
     <owners>AliNGame</owners>
@@ -17,7 +17,9 @@ This package will allows you to simply create great looking popups and dialogs e
 A high performance and easy to use popup UI toolkit for UWP(Universal Windows Platform).
 This package will allows you to simply create great looking popups and dialogs easier than ever
     </description>
-    <releaseNotes>First NuGet package release</releaseNotes>
+    <releaseNotes>
+Version 0.1.1.3:
+</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>UWP Popup UI Toolkit Dialog</tags>
     <dependencies>

@@ -151,6 +151,7 @@
       <DependentUpon>PopupControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\PopupPresenterHostControls\PopupPresenterHost.cs" />
+    <Compile Include="Controls\PopupPresenterHostControls\PopupPresenterHost.MessageBoxFunctions.cs" />
     <Compile Include="Controls\PopupPresenterHostControls\PopupPresenterHost.PopupControlFunctions.cs" />
     <Compile Include="Controls\PopupPresenterHostControls\PopupPresenterHost.Properties.cs" />
     <Compile Include="Controls\PopupPresenterHostControls\PopupPresenterHost.SlideupFunctions.cs" />
@@ -191,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Build\UWPPopupToolkit.props" />
+    <Compile Include="Controls\MessageBoxControls\MessageBoxControl.Functions.cs" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
