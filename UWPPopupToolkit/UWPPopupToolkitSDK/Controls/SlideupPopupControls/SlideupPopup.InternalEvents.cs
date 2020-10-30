@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Animations;
+using System.Threading.Tasks;
 using UWPPopupToolkit.Controls.PopupPresenterHostControls;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Input;
@@ -45,7 +46,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
                 (HidePopupStoryboard.Children[0] as DoubleAnimation).To = Host.ActualHeight;
                 (HidePopupStoryboard.Children[1] as DoubleAnimation).To = 0;
                 await HidePopupStoryboard.BeginAsync();
-                this.Dispose();
+                await PopupPresenterHost.HideSlideupPopupAsync(this);
             }
             else await ShowPopupStoryboard.BeginAsync();
         }

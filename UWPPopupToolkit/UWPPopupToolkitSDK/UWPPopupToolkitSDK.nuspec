@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>UWPPopupToolkit</id>
-    <version>0.1.1.3</version>
+    <version>0.1.1.4</version>
     <title>UWPPopupToolkit</title>
     <authors>AliNGame</authors>
     <owners>AliNGame</owners>
@@ -18,10 +18,9 @@ A high performance and easy to use popup UI toolkit for UWP(Universal Windows Pl
 This package will allows you to simply create great looking popups and dialogs easier than ever
     </description>
     <releaseNotes>
-Version 0.1.1.3:
--Added Alpha messagebox functions
--Added support for auto detect background color for Slideup popups
--Added IDiposable for PopupPresenterHost to dispose the Host and clear are childrens if needed in some cases
+Version 0.1.1.4:
+-Dispose slideup popups on hiding with manipulation
+-A bit more padding for slideup popup thumb for more handy swipe
 </releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>UWP Popup UI Toolkit Dialog</tags>
