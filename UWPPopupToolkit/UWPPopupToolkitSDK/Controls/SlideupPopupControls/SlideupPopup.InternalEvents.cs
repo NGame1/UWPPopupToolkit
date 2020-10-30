@@ -45,6 +45,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
                 (HidePopupStoryboard.Children[0] as DoubleAnimation).To = Host.ActualHeight;
                 (HidePopupStoryboard.Children[1] as DoubleAnimation).To = 0;
                 await HidePopupStoryboard.BeginAsync();
+                this.Dispose();
             }
             else await ShowPopupStoryboard.BeginAsync();
         }
