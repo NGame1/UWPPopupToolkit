@@ -32,7 +32,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
                 var initialize = PopupContent.GetMethod("InitializeComponent");
                 initialize.Invoke(uicontent, null);
                 ContentPresentationGrid.Children.Add(uicontent);
-                _content = uicontent;
+                _uicontent = uicontent;
                 if(BackgroundColor == null)
                 {
                     var b = (uicontent.GetPropertyValue("Background")) as Brush;
