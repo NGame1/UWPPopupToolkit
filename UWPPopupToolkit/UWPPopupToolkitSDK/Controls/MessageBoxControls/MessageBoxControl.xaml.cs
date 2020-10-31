@@ -26,6 +26,7 @@ namespace UWPPopupToolkit.Controls
                     _content.Children.Add(uicontent);
                     _content.Visibility = Visibility.Visible;
                     ContentType = PopupContent;
+                    _uicontent = uicontent;
                 }
             }
         }
@@ -39,7 +40,7 @@ namespace UWPPopupToolkit.Controls
             HideAnimation = MessageBoxAnimationKind.None;
             _root = null;
             _content = null;
-            if (ContentType is IDisposable disposable)
+            if (_uicontent is IDisposable disposable)
                 disposable.Dispose();
             ContentType = null;
             Content = null;

@@ -74,5 +74,6 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         /// Type of the activated content in the popup
         /// </summary>
         public Type PopupContentType { get; }
+        FrameworkElement _uicontent { get; }
     }
 }

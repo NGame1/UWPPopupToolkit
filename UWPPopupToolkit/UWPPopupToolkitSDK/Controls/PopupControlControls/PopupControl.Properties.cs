@@ -168,5 +168,6 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
         );
 
         public event PropertyChangedEventHandler PropertyChanged;
+        FrameworkElement _uicontent { get; }
     }
 }

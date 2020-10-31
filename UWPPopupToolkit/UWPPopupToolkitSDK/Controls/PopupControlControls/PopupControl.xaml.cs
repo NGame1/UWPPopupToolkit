@@ -29,6 +29,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
                 var initialize = PopupContent.GetMethod("InitializeComponent");
                 initialize.Invoke(uicontent, null);
                 _content.Children.Add(uicontent);
+                _uicontent = uicontent;
             }
         }
 

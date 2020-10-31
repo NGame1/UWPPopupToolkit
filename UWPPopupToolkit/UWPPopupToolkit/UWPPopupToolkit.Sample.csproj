@@ -146,6 +146,9 @@
     <Compile Include="ListPage2.xaml.cs">
       <DependentUpon>ListPage2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListPageIDisposable.xaml.cs">
+      <DependentUpon>ListPageIDisposable.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -188,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ListPage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListPageIDisposable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
