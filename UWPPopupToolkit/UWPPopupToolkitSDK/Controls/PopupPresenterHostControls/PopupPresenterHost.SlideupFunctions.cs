@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using UWPPopupToolkit.Controls.SlideupPopupControls;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
@@ -18,9 +19,10 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
         /// <param name="Host_Id">Id of the control that will host the new popup</param>
         /// <param name="OpenNewIfExists">Allows to open more than one popup with the same content</param>
         /// <param name="BgColor">Background Color of the final popup (default is White)</param>
+        /// <param name="lightdismissbgcolor">Background Color of the popup's light dismiss area</param>
         /// <param name="args">Arguments needed on the Content ctor</param>
         /// <returns></returns>
-        public static async Task<Guid> ShowSlideupPopupAsync(Type content, double ContentHeight = double.NaN, double PopupWidth = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, Brush BgColor = null, params object[] args)
+        public static async Task<Guid> ShowSlideupPopupAsync(Type content, double ContentHeight = double.NaN, double PopupWidth = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, bool IsLightDismissHidingEnabled = true, Brush BgColor = null, Color? lightdismissbgcolor = null, params object[] args)
         {
             PopupPresenterHost Host = null;
             if (Host_Id == null)
@@ -29,8 +31,9 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
             if (Host.Children.Any(x => x is SlideupPopup slideup && slideup.PopupContentType == content))
                 if (!OpenNewIfExists)
                     throw new Exception("An existing popup of this type is currently open.");
-            var p = new SlideupPopup(content, args) { PopupHeight = ContentHeight };
-            if(BgColor != null) p.BackgroundColor = BgColor;
+            var p = new SlideupPopup(content, args) { LightDismissEnabled = IsLightDismissHidingEnabled, PopupHeight = ContentHeight };
+            if (BgColor != null) p.BackgroundColorBrsh = BgColor;
+            if (lightdismissbgcolor != null) p.LightDismissColor = lightdismissbgcolor;
             if (!double.IsNaN(PopupWidth)) p.PopupWidth = PopupWidth;
             Host.Children.Add(p);
             await p.ShowPopupAsync();
@@ -46,9 +49,10 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
         /// <param name="Host_Id">Id of the control that will host the new popup</param>
         /// <param name="OpenNewIfExists">Allows to open more than one popup with the same content</param>
         /// <param name="BgColor">Background Color of the final popup (default is White)</param>
+        /// <param name="lightdismissbgcolor">Background Color of the popup's light dismiss area</param>
         /// <param name="args">Arguments needed on the Content ctor</param>
         /// <returns></returns>
-        public static Guid ShowSlideupPopup(Type content, double ContentHeight = double.NaN, double PopupWidth = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, Brush BgColor = null, params object[] args)
+        public static Guid ShowSlideupPopup(Type content, double ContentHeight = double.NaN, double PopupWidth = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, Brush BgColor = null, bool IsLightDismissHidingEnabled = true, Color? lightdismissbgcolor = null, params object[] args)
         {
             PopupPresenterHost Host = null;
             if (Host_Id == null)
@@ -57,8 +61,9 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
             if (Host.Children.Any(x => x is SlideupPopup slideup && slideup.PopupContentType == content))
                 if (!OpenNewIfExists)
                     throw new Exception("An existing popup of this type is currently open.");
-            var p = new SlideupPopup(content, args) { PopupHeight = ContentHeight };
-            if (BgColor != null) p.BackgroundColor = BgColor;
+            var p = new SlideupPopup(content, args) { LightDismissEnabled = IsLightDismissHidingEnabled, PopupHeight = ContentHeight };
+            if (BgColor != null) p.BackgroundColorBrsh = BgColor;
+            if (lightdismissbgcolor != null) p.LightDismissColor = lightdismissbgcolor;
             if (!double.IsNaN(PopupWidth)) p.PopupWidth = PopupWidth;
             Host.Children.Add(p);
             p.ShowPopup();

@@ -30,12 +30,38 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         /// <summary>
         /// Gets or sets the background color of the popup
         /// </summary>
-        public Brush BackgroundColor { get; set; } = null;
+        public Brush BackgroundColorBrsh { get; set; } = null;
 
         /// <summary>
         /// result popup width witch is full width 
         /// </summary>
         public double PopupWidth { get; set; } = double.NaN;
+
+        /// <summary>
+        /// Enables / Disables the light dismiss, allows to close popup by tapping out of the popup
+        /// </summary>
+        public bool LightDismissEnabled { get; set; } = true;
+
+        /// <summary>
+        /// Background color of the light dismiss brush
+        /// </summary>
+        public Color? LightDismissColor{ get; set; } = Color.FromArgb(200, 0, 0, 0);
+
+
+
+        public static readonly DependencyProperty LightDismissColorProperty = DependencyProperty.Register(
+         "LightDismissColor",
+         typeof(Color?),
+         typeof(SlideupPopup),
+         new PropertyMetadata(null)
+        );
+
+        public static readonly DependencyProperty LightDismissEnabledProperty = DependencyProperty.Register(
+         "LightDismissEnabled",
+         typeof(bool),
+         typeof(SlideupPopup),
+         new PropertyMetadata(null)
+        );
 
         public static readonly DependencyProperty PopupWidthProperty = DependencyProperty.Register(
          "PopupWidth",
@@ -44,8 +70,8 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
          new PropertyMetadata(null)
         );
 
-        public static readonly DependencyProperty BackgroundColorProperty = DependencyProperty.Register(
-         "BackgroundColor",
+        public static readonly DependencyProperty BackgroundColorBrshProperty = DependencyProperty.Register(
+         "BackgroundColorBrsh",
          typeof(Brush),
          typeof(SlideupPopup),
          new PropertyMetadata(null)

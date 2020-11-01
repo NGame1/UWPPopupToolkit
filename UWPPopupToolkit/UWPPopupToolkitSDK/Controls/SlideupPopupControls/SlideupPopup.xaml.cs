@@ -33,13 +33,12 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
                 initialize.Invoke(uicontent, null);
                 ContentPresentationGrid.Children.Add(uicontent);
                 _uicontent = uicontent;
-                if(BackgroundColor == null)
+                if(BackgroundColorBrsh == null)
                 {
                     var b = (uicontent.GetPropertyValue("Background")) as Brush;
-                    BackgroundColor = b;
+                    BackgroundColorBrsh = b;
                 }
             }
         }
-
     }
 }

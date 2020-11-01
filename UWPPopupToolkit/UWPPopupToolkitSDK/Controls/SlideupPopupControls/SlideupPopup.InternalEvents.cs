@@ -52,6 +52,17 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         }
 
         /// <summary>
+        /// Hides the popup on tapping outside of the popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void LightDismissArea_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (LightDismissEnabled)
+                await PopupPresenterHost.HideSlideupPopupAsync(this);
+        }
+
+        /// <summary>
         /// Initializing some little things of the animations
         /// </summary>
         /// <param name="sender"></param>

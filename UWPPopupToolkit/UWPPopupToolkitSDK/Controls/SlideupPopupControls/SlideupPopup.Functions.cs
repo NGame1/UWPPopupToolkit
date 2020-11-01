@@ -66,7 +66,8 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
             _popup.Children.Clear();
             if (_uicontent is IDisposable disposable)
                 disposable.Dispose();
-            BackgroundColor = null;
+            BackgroundColorBrsh = null;
+            LightDismissColor = null;
             ContentPresentationGrid = null;
             _translatetransform = null;
             _popup = null;

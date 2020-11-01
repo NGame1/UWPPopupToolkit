@@ -8,31 +8,35 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid x:Name="_popup" Opacity="0" CornerRadius="25,25,0,0" Background="{x:Bind BackgroundColor}">
-        <Grid.Resources>
-            <Storyboard x:Key="HidePopupStoryboard" x:Name="HidePopupStoryboard" Duration="0:0:0.3" Storyboard.TargetName="_popup">
-                <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="2000" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
-                <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="0" Storyboard.TargetProperty="(UIElement.Opacity)"/>
-            </Storyboard>
-            <Storyboard x:Key="ShowPopupStoryboard" x:Name="ShowPopupStoryboard" Duration="0:0:0.3" Storyboard.TargetName="_popup">
-                <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="100" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
-                <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="1" Storyboard.TargetProperty="(UIElement.Opacity)"/>
-            </Storyboard>
-        </Grid.Resources>
-        <Grid.RenderTransform>
-            <CompositeTransform x:Name="_translatetransform"/>
-        </Grid.RenderTransform>
-        <Grid x:Name="_contentgr">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid Padding="0,8" ManipulationMode="TranslateY" Background="#00000001"
+    <Grid x:Name="LightDismissArea" Background="Transparent" Tapped="LightDismissArea_Tapped">
+        <Grid x:Name="_popup" Opacity="0" CornerRadius="25,25,0,0" Background="{x:Bind BackgroundColorBrsh}">
+            <Grid.Resources>
+                <Storyboard x:Key="HidePopupStoryboard" x:Name="HidePopupStoryboard" Duration="0:0:0.3" Storyboard.TargetName="_popup">
+                    <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="2000" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+                    <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="0" Storyboard.TargetProperty="(UIElement.Opacity)"/>
+                    <ColorAnimation Duration="{x:Bind AnimationDuration}" To="#00000000" Storyboard.TargetName="LightDismissArea" Storyboard.TargetProperty="(UIElement.Background).(SolidColorBrush.Color)"/>
+                </Storyboard>
+                <Storyboard x:Key="ShowPopupStoryboard" x:Name="ShowPopupStoryboard" Duration="0:0:0.3" Storyboard.TargetName="_popup">
+                    <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="100" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"/>
+                    <DoubleAnimation Duration="{x:Bind AnimationDuration}" To="1" Storyboard.TargetProperty="(UIElement.Opacity)"/>
+                    <ColorAnimation Duration="{x:Bind AnimationDuration}" To="{x:Bind LightDismissColor}" Storyboard.TargetName="LightDismissArea" Storyboard.TargetProperty="(UIElement.Background).(SolidColorBrush.Color)"/>
+                </Storyboard>
+            </Grid.Resources>
+            <Grid.RenderTransform>
+                <CompositeTransform x:Name="_translatetransform"/>
+            </Grid.RenderTransform>
+            <Grid x:Name="_contentgr">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Padding="0,8" ManipulationMode="TranslateY" Background="#00000001"
               ManipulationStarted="_popup_ManipulationStarted" ManipulationDelta="_popup_ManipulationDelta" ManipulationCompleted="_popup_ManipulationCompleted">
-                <Rectangle Width="45" Height="8" Fill="LightGray" RadiusX="5" RadiusY="45"/>
-            </Grid>
-            <Grid x:Name="ContentPresentationGrid" Grid.Row="1">
+                    <Rectangle Width="45" Height="8" Fill="LightGray" RadiusX="5" RadiusY="45"/>
+                </Grid>
+                <Grid x:Name="ContentPresentationGrid" Grid.Row="1">
 
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
