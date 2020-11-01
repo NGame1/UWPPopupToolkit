@@ -45,6 +45,7 @@ namespace UWPPopupToolkit.Controls
             ContentType = null;
             Content = null;
             MessageContent = null;
+            GC.Collect();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

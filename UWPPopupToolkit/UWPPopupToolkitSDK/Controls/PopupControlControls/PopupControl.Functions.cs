@@ -40,6 +40,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
             if (_uicontent is IDisposable disposable)
                 disposable.Dispose();
             _content.Children.Clear();
+            GC.Collect();
         }
 
         /// <summary>
