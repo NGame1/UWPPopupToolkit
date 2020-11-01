@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>UWPPopupToolkit</id>
-    <version>0.1.1.6</version>
+    <version>0.1.1.7</version>
     <title>UWPPopupToolkit</title>
     <authors>AliNGame</authors>
     <owners>AliNGame</owners>
@@ -18,8 +18,8 @@ A high performance and easy to use popup UI toolkit for UWP(Universal Windows Pl
 This package will allows you to simply create great looking popups and dialogs easier than ever
     </description>
     <releaseNotes>
-Version 0.1.1.6:
--Fixed little performance issues including disposing content of popups
+Version 0.1.1.7:
+-Added support for light dismiss in slideup popups
 </releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>UWP Popup UI Toolkit Dialog</tags>

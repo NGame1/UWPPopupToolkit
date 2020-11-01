@@ -58,8 +58,10 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         /// <param name="e"></param>
         private async void LightDismissArea_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            var p = e.GetPosition(_popup);
             if (LightDismissEnabled)
-                await PopupPresenterHost.HideSlideupPopupAsync(this);
+                if (p.Y < 0 || p.X < 0 || (!double.IsNaN(PopupWidth) && p.X > PopupWidth))
+                    await PopupPresenterHost.HideSlideupPopupAsync(this);
         }
 
         /// <summary>
@@ -80,7 +82,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
                 da.To = Padding;
             }
             else ContentPresentationGrid.Margin = new Thickness(0, 0, 0, 100);
-            if (!double.IsNaN(PopupWidth)) Width = PopupWidth;
+            if (!double.IsNaN(PopupWidth)) _popup.Width = PopupWidth;
             da.From = null;
         }
 
