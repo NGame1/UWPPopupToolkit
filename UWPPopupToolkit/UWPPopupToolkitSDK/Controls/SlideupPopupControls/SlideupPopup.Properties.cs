@@ -101,5 +101,6 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         /// </summary>
         public Type PopupContentType { get; }
         FrameworkElement _uicontent { get; }
+        bool outofrangeslide { get; set; }
     }
 }

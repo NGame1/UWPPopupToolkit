@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using UWPPopupToolkit.Controls.PopupPresenterHostControls;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
@@ -13,6 +14,20 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         private void _popup_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
             _startPoint = e.Position;
+            if (sender is FrameworkElement element)
+            {
+                var ph = 0;
+                var wh = Window.Current.Bounds.Height;
+                if (double.IsNaN(PopupHeight))
+                {
+                    ph = 100;
+                }
+                else ph = (int)wh - ph;
+
+                if (element.Name == nameof(LightDismissArea) && e.Position.Y > ph)
+                    outofrangeslide = true;
+                else outofrangeslide = false;
+            }
         }
 
         /// <summary>
@@ -22,6 +37,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         /// <param name="e">Not important</param>
         private void _popup_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
+            if (outofrangeslide) return;
             var Host = (FrameworkElement)this.Parent;
             var _translatetransform = _popup.RenderTransform as CompositeTransform;
             var enddelta = _translatetransform.TranslateY + e.Delta.Translation.Y;
@@ -39,8 +55,8 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         /// <param name="e">Not important</param>
         private async void _popup_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
+            if (outofrangeslide) return;
             var Host = (FrameworkElement)this.Parent;
-            var y = e.Position.Y;
             if (e.Cumulative.Translation.Y > 50)
             {
                 (HidePopupStoryboard.Children[0] as DoubleAnimation).To = Host.ActualHeight;
