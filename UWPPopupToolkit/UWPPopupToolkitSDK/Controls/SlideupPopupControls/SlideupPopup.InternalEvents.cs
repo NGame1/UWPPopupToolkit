@@ -16,13 +16,13 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
             _startPoint = e.Position;
             if (sender is FrameworkElement element)
             {
-                var ph = 0;
+                double ph = 0;
                 var wh = Window.Current.Bounds.Height;
                 if (double.IsNaN(PopupHeight))
                 {
                     ph = 100;
                 }
-                else ph = (int)wh - ph;
+                else ph = wh - PopupHeight;
 
                 if (element.Name == nameof(LightDismissArea) && e.Position.Y > ph)
                     outofrangeslide = true;
