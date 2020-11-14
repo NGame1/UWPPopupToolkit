@@ -14,7 +14,7 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
         /// This method will shows the message box frame Asynchronously
         /// </summary>
         /// <returns></returns>
-        public static async Task<Guid> ShowMessageBoxAsync(string message, Type content = null, string Title = "", string Host_Id = null, MessageBoxAnimationKind ShowAnimationMode = MessageBoxAnimationKind.FadeIn, MessageBoxAnimationKind HideAnimationMode = MessageBoxAnimationKind.FadeOut, params object[] args)
+        public static async Task<Guid> ShowMessageBoxAsync(string message, Type content = null, string Title = "", string Host_Id = null, params object[] args)
         {
             PopupPresenterHost Host = null;
             if (Host_Id == null)
@@ -23,13 +23,14 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
             //if (Host.Children.Any(x => x is PopupControl pop && pop.PopupContentType == content))
             //    if (!OpenNewIfExists)
             //        throw new Exception("An existing popup of this type is currently open.");
-            var p = new MessageBoxControl(content, args) { Title = Title, MessageContent = message, ShowAnimation = ShowAnimationMode, HideAnimation = HideAnimationMode };
+            //var p = new MessageBoxControl(content, args) { Title = Title, MessageContent = message, ShowAnimation = ShowAnimationMode, HideAnimation = HideAnimationMode };
             //if (Margin.HasValue) p.ContentMargin = Margin.Value;
             //if (ShowAnimDuration.HasValue) p.ShowAnimationDuration = ShowAnimDuration.Value;
             //if (HideAnimDuration.HasValue) p.HideAnimationDuration = HideAnimDuration.Value;
-            Host.Children.Add(p);
-            await p.ShowPopupAsync();
-            return p.Identifier;
+            //Host.Children.Add(p);
+            //await p.ShowPopupAsync();
+            return await PopupPresenterHost.ShowSlideupPopupAsync(typeof(MessageBoxControl), Host_Id:Host_Id, args: new object[] { content == null ? message : content, Title, args });
+            //return p.Identifier;
         }
     }
 }

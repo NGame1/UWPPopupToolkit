@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Numerics;
 using System.Reflection;
+using UWPPopupToolkit.Controls.PopupPresenterHostControls;
+using UWPPopupToolkit.Controls.SlideupPopupControls;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -9,9 +13,17 @@ namespace UWPPopupToolkit.Controls
 {
     public sealed partial class MessageBoxControl : UserControl, IDisposable
     {
-        public MessageBoxControl(Type PopupContent, params object[] args)
+        public MessageBoxControl(string message, string title, params object[] args)
         {
             this.InitializeComponent();
+            MessageContent = message;
+            Title = title;
+        }
+
+        public MessageBoxControl(Type PopupContent, string title, params object[] args)
+        {
+            this.InitializeComponent();
+            Title = title;
             if (PopupContent is not null)
             {
                 var content = Activator.CreateInstance(PopupContent);
@@ -48,9 +60,10 @@ namespace UWPPopupToolkit.Controls
             GC.Collect();
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private async void ButtonBorder_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            
+            var id = SlideupPopup.GetIdentifier(this);
+            await PopupPresenterHost.HideSlideupPopupAsync(id);
         }
     }
 }

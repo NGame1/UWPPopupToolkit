@@ -36,7 +36,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
             while (parent != null)
             {
                 var p = parent.GetPropertyValue("Identifier");
-                if (p != null) return (Guid)p;
+                if (p != null && parent is SlideupPopup) return (Guid)p;
                 else
                 {
                     parent = (FrameworkElement)parent.Parent;

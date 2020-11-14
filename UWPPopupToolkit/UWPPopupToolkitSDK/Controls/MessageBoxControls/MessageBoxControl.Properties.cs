@@ -97,7 +97,6 @@ namespace UWPPopupToolkit.Controls
           new PropertyMetadata(null)
          );
 
-        public Guid Identifier { get; } = Guid.NewGuid();
         FrameworkElement _uicontent { get; }
     }
 }

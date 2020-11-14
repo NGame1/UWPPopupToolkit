@@ -1,4 +1,4 @@
-﻿<UserControl
+﻿<UserControl Background="{StaticResource AppBarBackgroundThemeBrush}"
     x:Class="UWPPopupToolkit.Controls.MessageBoxControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,26 +8,27 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid Padding="12,0" x:Name="_root" Opacity="0" Background="{StaticResource AppBarBackgroundThemeBrush}" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid Padding="12,0" x:Name="_root" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="36"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="{x:Bind Title, Mode=OneWay}" FontWeight="SemiBold" FontSize="18" VerticalAlignment="Center" Grid.Column="0"/>
-            <Button Content="&#xE106;" Background="Transparent" FontFamily="Segoe MDL2 Assets" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Click="CloseButton_Click"/>
+            <TextBlock Text="{x:Bind Title, Mode=OneWay}" FontWeight="SemiBold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0"/>
         </Grid>
         <Grid Padding="0,0,0,12" Grid.Row="1">
             <ScrollViewer>
-                <TextBlock Text="{x:Bind MessageContent, Mode=OneWay}"/>
+                <TextBlock TextWrapping="Wrap" Text="{x:Bind MessageContent, Mode=OneWay}"/>
             </ScrollViewer>
         </Grid>
         <Grid x:Name="_content" Grid.Row="1" Visibility="Collapsed">
 
         </Grid>
+        <Border x:Name="ButtonBorder" Margin="0,12" HorizontalAlignment="Stretch" Grid.Row="2" Height="45" Background="{StaticResource SystemAccentColor}" Tapped="ButtonBorder_Tapped" CornerRadius="20">
+            <TextBlock FontWeight="SemiBold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center">
+                OK
+            </TextBlock>
+        </Border>
     </Grid>
 </UserControl>

@@ -21,7 +21,7 @@ namespace UWPPopupToolkit.Controls.PopupControlControls
             while (parent != null)
             {
                 var p = parent.GetPropertyValue("Identifier");
-                if (p != null) return (Guid)p;
+                if (p != null && parent is PopupControl) return (Guid)p;
                 else
                 {
                     parent = (FrameworkElement)parent.Parent;

@@ -192,7 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Build\UWPPopupToolkit.props" />
-    <Compile Include="Controls\MessageBoxControls\MessageBoxControl.Functions.cs" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
