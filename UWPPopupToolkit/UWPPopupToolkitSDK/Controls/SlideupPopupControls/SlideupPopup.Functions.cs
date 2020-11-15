@@ -54,6 +54,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         {
             if (_isdisposing || HidePopupStoryboard == null) return;
             _isdisposing = true;
+            Window.Current.SizeChanged -= Current_SizeChanged;
             await HidePopupStoryboard.BeginAsync();
             HidePopupStoryboard.Stop();
             HidePopupStoryboard.Children.Clear();

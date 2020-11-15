@@ -8,9 +8,9 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid Padding="12,0" x:Name="_root" HorizontalAlignment="Center">
+    <Grid x:FieldModifier="public" Padding="12,0" x:Name="_root" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>

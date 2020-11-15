@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>UWPPopupToolkit</id>
-    <version>0.1.2.0</version>
+    <version>0.1.2.2</version>
     <title>UWPPopupToolkit</title>
     <authors>AliNGame</authors>
     <owners>AliNGame</owners>
@@ -18,8 +18,9 @@ A high performance and easy to use popup UI toolkit for UWP(Universal Windows Pl
 This package will allows you to simply create great looking popups and dialogs easier than ever
     </description>
     <releaseNotes>
-Version 0.1.2.0:
--Bugfix for light dismiss area manipulation
+Version 0.1.2.2:
+-New message box UI (based on slideup popup)
+-Fixed little bug in GetIdentifier functions
 </releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>UWP Popup UI Toolkit Dialog</tags>

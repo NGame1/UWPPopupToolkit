@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Uwp.UI.Animations;
+using System;
 using System.ComponentModel;
 using System.Reflection;
+using System.Threading.Tasks;
 using UWPPopupToolkit.Helpers;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -33,12 +36,20 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
                 initialize.Invoke(uicontent, null);
                 ContentPresentationGrid.Children.Add(uicontent);
                 _uicontent = uicontent;
-                if(BackgroundColorBrsh == null)
+                if (BackgroundColorBrsh == null)
                 {
                     var b = (uicontent.GetPropertyValue("Background")) as Brush;
                     BackgroundColorBrsh = b;
                 }
             }
+            Window.Current.SizeChanged += Current_SizeChanged;
+        }
+
+        private async void Current_SizeChanged(object sender, WindowSizeChangedEventArgs e)
+        {
+            await HidePopupStoryboard.BeginAsync();
+            UserControl_Loaded(null, null);
+            await ShowPopupStoryboard.BeginAsync();
         }
     }
 }
