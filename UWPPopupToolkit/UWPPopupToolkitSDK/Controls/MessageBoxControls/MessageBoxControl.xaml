@@ -18,7 +18,7 @@
             <TextBlock Text="{x:Bind Title, Mode=OneWay}" FontWeight="SemiBold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0"/>
         </Grid>
         <Grid Padding="-12,0,-12,12" Grid.Row="1">
-            <ScrollViewer Padding="12,0,16,0">
+            <ScrollViewer Padding="12,0,18,0">
                 <TextBlock TextWrapping="Wrap" Text="{x:Bind MessageContent, Mode=OneWay}"/>
             </ScrollViewer>
         </Grid>

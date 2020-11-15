@@ -170,6 +170,7 @@
     <Content Include="Assets\SampleImages\F8.jpg" />
     <Content Include="Assets\SampleImages\F9.jpg" />
     <Content Include="Assets\SampleImages\MainBG.jpg" />
+    <Content Include="DemoContent\LoremIpsum.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

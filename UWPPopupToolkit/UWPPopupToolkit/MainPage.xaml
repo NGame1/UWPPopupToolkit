@@ -19,6 +19,8 @@
                 <Button Click="ShowPopupControlAsync" Content="Show PopupControl Async"/>
                 <Button Click="ShowPopupControlCustomClose" Content="Show PopupControl Custom Close"/>
                 <Button Click="ShowPopupControlAnimation" Content="Show PopupControl Animation"/>
+                <Button Click="ShowShortTextMessageBox" Content="Show Short text message box"/>
+                <Button Click="ShowLongTextMessageBox" Content="Show Long text message box"/>
             </StackPanel>
         </Grid>
     </custompopups:PopupPresenterHost>

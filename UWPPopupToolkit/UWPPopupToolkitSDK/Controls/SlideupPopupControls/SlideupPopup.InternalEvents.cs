@@ -87,15 +87,16 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             var Host = (PopupPresenterHost)this.Parent;
-            if(_uicontent is MessageBoxControl message)
+            if (_uicontent is MessageBoxControl message)
             {
-                if(message.MessageContent != null)
+                if (message.MessageContent != null)
                 {
                     var txts = message.FindChildren<TextBlock>();
                     double sum = 0;
                     sum = txts.Sum(x => x.ActualHeight);
                     sum += 100;
-                    PopupHeight = sum;
+                    if (Host.ActualHeight >= sum + 100)
+                        PopupHeight = sum;
                 }
             }
             var da = ShowPopupStoryboard.Children[0] as DoubleAnimation;

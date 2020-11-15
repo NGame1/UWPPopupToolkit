@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
+using UWPPopupToolkit.Controls;
 using UWPPopupToolkit.Controls.PopupControlControls;
 using UWPPopupToolkit.Controls.PopupPresenterHostControls;
+using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -18,10 +20,6 @@ namespace UWPPopupToolkit.Sample
         public MainPage()
         {
             this.InitializeComponent();
-            //Testing message box.
-            //this.Loaded += async (s, e) => { await Task.Delay(1500); await PopupPresenterHost.ShowMessageBoxAsync(null, content: typeof(ListPage), Title: "UWPPopupToolkit"); };
-            //this.Loaded += async (s, e) => { await Task.Delay(1500); await PopupPresenterHost.ShowMessageBoxAsync("This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.This is my test message.", Title: "UWPPopupToolkit"); };
-            this.Loaded += async (s, e) => { await Task.Delay(1500); await PopupPresenterHost.ShowMessageBoxAsync("This is my test message.", Title: "UWPPopupToolkit"); };
         }
 
         private void ShowSlideupPopupNormalSize(object sender, RoutedEventArgs e)
@@ -69,6 +67,17 @@ namespace UWPPopupToolkit.Sample
             var g = await PopupPresenterHost.ShowPopupControlAsync(typeof(ListPage2),
                 ShowAnimationMode: PopupControlAnimationKind.SlideUp, HideAnimationMode: PopupControlAnimationKind.SlideUp);
             await PopupPresenterHost.HidePopupControlAsync(g);
+        }
+
+        private async void ShowShortTextMessageBox(object sender, RoutedEventArgs e)
+        {
+            await PopupPresenterHost.ShowMessageBoxAsync("This is a short message text sample.", Title: "Test Title");
+        }
+
+        private async void ShowLongTextMessageBox(object sender, RoutedEventArgs e)
+        {
+            var msg = await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///DemoContent/LoremIpsum.txt", UriKind.RelativeOrAbsolute)));
+            await PopupPresenterHost.ShowMessageBoxAsync(msg, Title: "Lorem Ipsum");
         }
     }
 }
