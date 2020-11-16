@@ -8,7 +8,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid x:FieldModifier="public" Padding="12,0" x:Name="_root" HorizontalAlignment="Center">
+    <Grid x:FieldModifier="public" Padding="12,0" x:Name="_root" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -19,16 +19,14 @@
         </Grid>
         <Grid Padding="-12,0,-12,12" Grid.Row="1">
             <ScrollViewer Padding="12,0,18,0">
-                <TextBlock TextWrapping="Wrap" Text="{x:Bind MessageContent, Mode=OneWay}"/>
+                <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="{x:Bind MessageContent, Mode=OneWay}"/>
             </ScrollViewer>
         </Grid>
         <Grid x:Name="_content" Grid.Row="1" Visibility="Collapsed">
 
         </Grid>
-        <Border x:Name="ButtonBorder" Margin="0,12" HorizontalAlignment="Stretch" Grid.Row="2" Height="45" Background="{StaticResource SystemAccentColor}" Tapped="ButtonBorder_Tapped" CornerRadius="20">
-            <TextBlock FontWeight="SemiBold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center">
-                OK
-            </TextBlock>
-        </Border>
+        <Grid x:Name="ButtonsGrid" x:FieldModifier="public" Margin="0,0,0,12" Grid.Row="2">
+
+        </Grid>
     </Grid>
 </UserControl>

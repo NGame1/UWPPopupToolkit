@@ -1,4 +1,5 @@
 ﻿using System;
+using UWPPopupToolkit.Controls.PopupPresenterHostControls;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Popups;
@@ -28,7 +29,8 @@ namespace UWPPopupToolkit.Sample
         {
             var ex = e.Exception;
             e.Handled = true;
-            await new MessageDialog($"{ex.Message}{Environment.NewLine}{ex.StackTrace}").ShowAsync();
+            await PopupPresenterHost.ShowMessageBoxAsync("{ex.Message}{Environment.NewLine}{ex.StackTrace}");
+            //await new MessageDialog($"{ex.Message}{Environment.NewLine}{ex.StackTrace}").ShowAsync();
         }
 
         /// <summary>

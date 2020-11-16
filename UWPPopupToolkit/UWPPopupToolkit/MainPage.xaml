@@ -21,6 +21,7 @@
                 <Button Click="ShowPopupControlAnimation" Content="Show PopupControl Animation"/>
                 <Button Click="ShowShortTextMessageBox" Content="Show Short text message box"/>
                 <Button Click="ShowLongTextMessageBox" Content="Show Long text message box"/>
+                <Button Click="SampleDeleteMessageBox" Content="Sample Delete Message Box"/>
             </StackPanel>
         </Grid>
     </custompopups:PopupPresenterHost>

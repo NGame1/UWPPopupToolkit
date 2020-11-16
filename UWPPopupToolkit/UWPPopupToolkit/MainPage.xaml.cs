@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Threading.Tasks;
 using UWPPopupToolkit.Controls;
+using UWPPopupToolkit.Controls.MessageBoxControls;
 using UWPPopupToolkit.Controls.PopupControlControls;
 using UWPPopupToolkit.Controls.PopupPresenterHostControls;
 using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -78,6 +81,16 @@ namespace UWPPopupToolkit.Sample
         {
             var msg = await FileIO.ReadTextAsync(await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///DemoContent/LoremIpsum.txt", UriKind.RelativeOrAbsolute)));
             await PopupPresenterHost.ShowMessageBoxAsync(msg, Title: "Lorem Ipsum");
+        }
+
+        private async void SampleDeleteMessageBox(object sender, RoutedEventArgs e)
+        {
+            await PopupPresenterHost.ShowMessageBoxAsync("Are you sure you want to delete?", Title: "Delete File?",
+                Commands: new MessageBoxCommand[] {
+                    new MessageBoxCommand("Delete", "\uE74D",async ()=>{ await new MessageDialog("Success message.").ShowAsync(); }) { Background = new SolidColorBrush(Colors.Red), BorderBrush = new SolidColorBrush(Colors.Red), Foreground = new SolidColorBrush(Colors.White) },
+                    new MessageBoxCommand("Cancel", "\uE10A") { Foreground = new SolidColorBrush(Colors.White) },
+                    new MessageBoxCommand("Garbage!") { Foreground = new SolidColorBrush(Colors.White) }
+                });
         }
     }
 }
