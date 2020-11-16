@@ -22,6 +22,7 @@
                 <Button Click="ShowShortTextMessageBox" Content="Show Short text message box"/>
                 <Button Click="ShowLongTextMessageBox" Content="Show Long text message box"/>
                 <Button Click="SampleDeleteMessageBox" Content="Sample Delete Message Box"/>
+                <Button Click="SampleCopyFileMessageBox" Content="Sample Copy File Message Box"/>
             </StackPanel>
         </Grid>
     </custompopups:PopupPresenterHost>

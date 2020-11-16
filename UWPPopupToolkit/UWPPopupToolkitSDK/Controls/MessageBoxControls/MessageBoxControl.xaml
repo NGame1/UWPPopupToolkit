@@ -23,10 +23,10 @@
             </ScrollViewer>
         </Grid>
         <Grid x:Name="_content" Grid.Row="1" Visibility="Collapsed">
-
+            
         </Grid>
         <Grid x:Name="ButtonsGrid" x:FieldModifier="public" Margin="0,0,0,12" Grid.Row="2">
-
+            
         </Grid>
     </Grid>
 </UserControl>

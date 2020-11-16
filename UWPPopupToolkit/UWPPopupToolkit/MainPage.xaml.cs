@@ -88,8 +88,17 @@ namespace UWPPopupToolkit.Sample
             await PopupPresenterHost.ShowMessageBoxAsync("Are you sure you want to delete?", Title: "Delete File?",
                 Commands: new MessageBoxCommand[] {
                     new MessageBoxCommand("Delete", "\uE74D",async ()=>{ await new MessageDialog("Success message.").ShowAsync(); }) { Background = new SolidColorBrush(Colors.Red), BorderBrush = new SolidColorBrush(Colors.Red), Foreground = new SolidColorBrush(Colors.White) },
-                    new MessageBoxCommand("Cancel", "\uE10A") { Foreground = new SolidColorBrush(Colors.White) },
-                    new MessageBoxCommand("Garbage!") { Foreground = new SolidColorBrush(Colors.White) }
+                    new MessageBoxCommand("Cancel", "\uE10A") { Foreground = new SolidColorBrush(Colors.White) }
+                });
+        }
+
+        private async void SampleCopyFileMessageBox(object sender, RoutedEventArgs e)
+        {
+            await PopupPresenterHost.ShowMessageBoxAsync("Another file with the same name found, How to continue?", Title: "Copy failure",
+                Commands: new MessageBoxCommand[] {
+                    new MessageBoxCommand("Rename file", "\uE13E",async ()=>{ await new MessageDialog("File renamed and copied.").ShowAsync(); }) { Background = new SolidColorBrush(Colors.Red), BorderBrush = new SolidColorBrush(Colors.Red), Foreground = new SolidColorBrush(Colors.White) },
+                    new MessageBoxCommand("Replace", "\uE19C", async ()=>{ await new MessageDialog("File replaced.").ShowAsync(); }) { Foreground = new SolidColorBrush(Colors.White) },
+                    new MessageBoxCommand("Cancel", "\uE10A")
                 });
         }
     }

@@ -95,7 +95,7 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
                     double sum = 0;
                     sum = txts.Sum(x => x.ActualHeight);
                     sum += message.ButtonsGrid.ActualHeight;
-                    //sum += 100;
+                    sum += 24;
                     if (Host.ActualHeight >= sum + 100)
                         PopupHeight = sum;
                 }
