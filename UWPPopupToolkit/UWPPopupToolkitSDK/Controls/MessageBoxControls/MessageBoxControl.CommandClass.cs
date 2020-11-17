@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Resources;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;

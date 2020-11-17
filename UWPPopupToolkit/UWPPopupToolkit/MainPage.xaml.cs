@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using UWPPopupToolkit.Controls;
 using UWPPopupToolkit.Controls.MessageBoxControls;
 using UWPPopupToolkit.Controls.PopupControlControls;
 using UWPPopupToolkit.Controls.PopupPresenterHostControls;
