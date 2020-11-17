@@ -16,8 +16,8 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
         {
             PopupPresenterHost Host = null;
             if (Host_Id == null)
-                Host = _hosts.Any() ? _hosts.FirstOrDefault() : throw new Exception("Mo Hosts found or the host disposed.");
-            else Host = _hosts.Any() ? _hosts.First(x => x.Id == Host_Id) : throw new Exception("Mo Hosts found or the host disposed.");
+                Host = _hosts.Any() ? _hosts.FirstOrDefault() : null;
+            else Host = _hosts.Any() ? _hosts.First(x => x.Id == Host_Id) : null;
             if (Host == null)
             {
                 var msg = new MessageDialog(message, Title);
@@ -28,6 +28,7 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
                         msg.Commands.Add(new UICommand(item.Label, delegate { item._invoke?.Invoke(); }));
                     }
                 }
+                await msg.ShowAsync();
                 return Guid.Empty;
             }
             return await PopupPresenterHost.ShowSlideupPopupAsync(typeof(MessageBoxControl), Host_Id: Host_Id, args: new object[] { content == null ? message : content, Title, Commands, args });
