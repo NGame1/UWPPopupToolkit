@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>UWPPopupToolkit</id>
-    <version>0.1.2.4</version>
+    <version>0.1.2.5</version>
     <title>UWPPopupToolkit</title>
     <authors>AliNGame</authors>
     <owners>AliNGame</owners>
@@ -18,7 +18,7 @@ A high performance and easy to use popup UI toolkit for UWP(Universal Windows Pl
 This package will allows you to simply create great looking popups and dialogs easier than ever
     </description>
     <releaseNotes>
-Version 0.1.2.4:
+Version 0.1.2.5:
 -Message boxes now can be presented without PopupPresenterHost using UWP default MessageDialog control
 </releaseNotes>
     <copyright>Copyright 2020</copyright>

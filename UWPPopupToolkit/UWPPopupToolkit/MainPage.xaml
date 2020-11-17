@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page Loaded="Page_Loaded"
     x:Class="UWPPopupToolkit.Sample.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

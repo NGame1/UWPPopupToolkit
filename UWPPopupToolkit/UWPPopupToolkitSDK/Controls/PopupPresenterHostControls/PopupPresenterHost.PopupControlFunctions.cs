@@ -25,9 +25,33 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
         public static Guid ShowPopupControl(Type content, string Host_Id = null, bool OpenNewIfExists = true, PopupControlAnimationKind ShowAnimationMode = PopupControlAnimationKind.FadeIn, PopupControlAnimationKind HideAnimationMode = PopupControlAnimationKind.FadeOut, Thickness? Margin = null, Duration? ShowAnimDuration = null, Duration? HideAnimDuration = null, params object[] args)
         {
             PopupPresenterHost Host = null;
-            if (Host_Id == null)
-                Host = _hosts.Any() ? _hosts.FirstOrDefault() : throw new Exception("Mo Hosts found or the host disposed.");
-            else Host = _hosts.Any() ? _hosts.First(x => x.Id == Host_Id) : throw new Exception("Mo Hosts found or the host disposed.");
+
+            try
+            {
+                if (Host_Id == null)
+                    Host = _hosts.Any() ? _hosts.FirstOrDefault() : throw new Exception("Mo Hosts found or the host disposed.");
+                else Host = _hosts.Any() ? _hosts.First(x => x.Id == Host_Id) : throw new Exception("Mo Hosts found or the host disposed.");
+                var testthreadaccess = Host.Id;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("0x8001010E"))
+                {
+                    foreach (var item in _hosts)
+                    {
+                        try
+                        {
+                            if (item.Id is null || item.Id is string str)
+                            {
+                                if (Host_Id == null)
+                                    Host = item;
+                                else if (item.Id == Host_Id) Host = item;
+                            }
+                        }
+                        catch { }
+                    }
+                }
+            }
             if (Host.Children.Any(x => x is PopupControl pop && pop.PopupContentType == content))
                 if (!OpenNewIfExists)
                     throw new Exception("An existing popup of this type is currently open.");
@@ -56,9 +80,32 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
         public static async Task<Guid> ShowPopupControlAsync(Type content, string Host_Id = null, bool OpenNewIfExists = true, PopupControlAnimationKind ShowAnimationMode = PopupControlAnimationKind.FadeIn, PopupControlAnimationKind HideAnimationMode = PopupControlAnimationKind.FadeOut, Thickness? Margin = null, Duration? ShowAnimDuration = null, Duration? HideAnimDuration = null, params object[] args)
         {
             PopupPresenterHost Host = null;
-            if (Host_Id == null)
-                Host = _hosts.Any() ? _hosts.FirstOrDefault() : throw new Exception("Mo Hosts found or the host disposed.");
-            else Host = _hosts.Any() ? _hosts.First(x => x.Id == Host_Id) : throw new Exception("Mo Hosts found or the host disposed.");
+            try
+            {
+                if (Host_Id == null)
+                    Host = _hosts.Any() ? _hosts.FirstOrDefault() : throw new Exception("Mo Hosts found or the host disposed.");
+                else Host = _hosts.Any() ? _hosts.First(x => x.Id == Host_Id) : throw new Exception("Mo Hosts found or the host disposed.");
+                var testthreadaccess = Host.Id;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("0x8001010E"))
+                {
+                    foreach (var item in _hosts)
+                    {
+                        try
+                        {
+                            if (item.Id is null || item.Id is string str)
+                            {
+                                if (Host_Id == null)
+                                    Host = item;
+                                else if (item.Id == Host_Id) Host = item;
+                            }
+                        }
+                        catch { }
+                    }
+                }
+            }
             if (Host.Children.Any(x => x is PopupControl pop && pop.PopupContentType == content))
                 if (!OpenNewIfExists)
                     throw new Exception("An existing popup of this type is currently open.");
@@ -79,10 +126,38 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
         public static async void HidePopupControl(Guid Identifier, string Host_Id = null)
         {
             PopupPresenterHost Host = null;
-            if (Host_Id == null)
-                Host = _hosts.Any() ? _hosts.FirstOrDefault(x => x.Children.Any(y => y.GetType() == typeof(PopupControl) && (y as PopupControl).Identifier == Identifier)) : throw new Exception("Mo Hosts found or the host disposed.");
-            else Host = !_hosts.Any() ? throw new Exception("Mo Hosts found or the host disposed.") :
-            _hosts.Any(x => x.Id == Host_Id) ? _hosts.First(x => x.Id == Host_Id) : throw new Exception("Mo Hosts found or the host disposed.");
+            try
+            {
+                if (Host_Id == null)
+                    Host = _hosts.Any() ? _hosts.FirstOrDefault(x => x.Children.Any(y => y.GetType() == typeof(PopupControl) && (y as PopupControl).Identifier == Identifier)) : throw new Exception("Mo Hosts found or the host disposed.");
+                else Host = !_hosts.Any() ? throw new Exception("Mo Hosts found or the host disposed.") :
+                _hosts.Any(x => x.Id == Host_Id) ? _hosts.First(x => x.Id == Host_Id) : throw new Exception("Mo Hosts found or the host disposed.");
+                var testthreadaccess = Host.Id;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("0x8001010E"))
+                {
+                    foreach (var item in _hosts)
+                    {
+                        try
+                        {
+                            if (item.Id is null || item.Id is string str)
+                            {
+                                if (Host_Id == null && item.Children.Any(y => y.GetType() == typeof(PopupControl) && (y as PopupControl).Identifier == Identifier))
+                                    Host = item;
+                                else if (item.Id == Host_Id && item.Children.Any(y => y.GetType() == typeof(PopupControl) && (y as PopupControl).Identifier == Identifier)) Host = item;
+                            }
+                        }
+                        catch { }
+                    }
+                    if (Host == null) throw new Exception("Mo Hosts found or the host disposed.");
+                }
+            }
+            //if (Host_Id == null)
+            //    Host = _hosts.Any() ? _hosts.FirstOrDefault(x => x.Children.Any(y => y.GetType() == typeof(PopupControl) && (y as PopupControl).Identifier == Identifier)) : throw new Exception("Mo Hosts found or the host disposed.");
+            //else Host = !_hosts.Any() ? throw new Exception("Mo Hosts found or the host disposed.") :
+            //_hosts.Any(x => x.Id == Host_Id) ? _hosts.First(x => x.Id == Host_Id) : throw new Exception("Mo Hosts found or the host disposed.");
             if (Host.Children.Any(x => x is PopupControl uc && uc.Identifier == Identifier))
             {
                 var uc = (PopupControl)Host.Children.FirstOrDefault(x => x is PopupControl uc && uc.Identifier == Identifier);
@@ -112,10 +187,34 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
         public static async Task HidePopupControlAsync(Guid Identifier, string Host_Id = null)
         {
             PopupPresenterHost Host = null;
-            if (Host_Id == null)
-                Host = _hosts.Any() ? _hosts.FirstOrDefault(x => x.Children.Any(y => y.GetType() == typeof(PopupControl) && (y as PopupControl).Identifier == Identifier)) : throw new Exception("Mo Hosts found or the host disposed.");
-            else Host = !_hosts.Any() ? throw new Exception("Mo Hosts found or the host disposed.") :
-            _hosts.Any(x => x.Id == Host_Id) ? _hosts.First(x => x.Id == Host_Id) : throw new Exception("Mo Hosts found or the host disposed.");
+            try
+            {
+                if (Host_Id == null)
+                    Host = _hosts.Any() ? _hosts.FirstOrDefault(x => x.Children.Any(y => y.GetType() == typeof(PopupControl) && (y as PopupControl).Identifier == Identifier)) : throw new Exception("Mo Hosts found or the host disposed.");
+                else Host = !_hosts.Any() ? throw new Exception("Mo Hosts found or the host disposed.") :
+                _hosts.Any(x => x.Id == Host_Id) ? _hosts.First(x => x.Id == Host_Id) : throw new Exception("Mo Hosts found or the host disposed.");
+                var testthreadaccess = Host.Id;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("0x8001010E"))
+                {
+                    foreach (var item in _hosts)
+                    {
+                        try
+                        {
+                            if (item.Id is null || item.Id is string str)
+                            {
+                                if (Host_Id == null && item.Children.Any(y => y.GetType() == typeof(PopupControl) && (y as PopupControl).Identifier == Identifier))
+                                    Host = item;
+                                else if (item.Id == Host_Id && item.Children.Any(y => y.GetType() == typeof(PopupControl) && (y as PopupControl).Identifier == Identifier)) Host = item;
+                            }
+                        }
+                        catch { }
+                    }
+                    if (Host == null) throw new Exception("Mo Hosts found or the host disposed.");
+                }
+            }
             if (Host.Children.Any(x => x is PopupControl uc && uc.Identifier == Identifier))
             {
                 var uc = (PopupControl)Host.Children.FirstOrDefault(x => x is PopupControl uc && uc.Identifier == Identifier);

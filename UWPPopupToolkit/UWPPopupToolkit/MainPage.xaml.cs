@@ -3,9 +3,13 @@ using System.Threading.Tasks;
 using UWPPopupToolkit.Controls.MessageBoxControls;
 using UWPPopupToolkit.Controls.PopupControlControls;
 using UWPPopupToolkit.Controls.PopupPresenterHostControls;
+using UWPPopupToolkit.Helpers;
+using Windows.ApplicationModel.Core;
 using Windows.Storage;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -99,6 +103,43 @@ namespace UWPPopupToolkit.Sample
                     new MessageBoxCommand("Replace", "\uE19C", async ()=>{ await new MessageDialog("File replaced.").ShowAsync(); }) { Foreground = new SolidColorBrush(Colors.White) },
                     new MessageBoxCommand("Cancel", "\uE10A")
                 });
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (CoreApplication.Views.Count > 1) return;
+            var view = CoreApplication.CreateNewView();
+            int id = 0;
+            await view.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                var frame = new Frame();
+                frame.Navigate(typeof(MainPage));
+                var pph = new PopupPresenterHost();
+                pph.Children.Add(frame);
+                pph.Id = Guid.NewGuid().ToString();
+                pph.Tag = pph.Id;
+                Window.Current.Content = pph;
+                var nav = SystemNavigationManager.GetForCurrentView();
+                nav.BackRequested += (sfb, sfe) => { if (frame.CanGoBack) frame.GoBack(); sfe.Handled = true; };
+                frame.Navigated += (sf1, sf2) =>
+                {
+                    if (frame.CanGoBack)
+                        nav.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+                    else nav.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+                };
+                view.CoreWindow.KeyDown += (s1, e1) =>
+                {
+                    if (e1.VirtualKey == Windows.System.VirtualKey.Escape)
+                    {
+                        if (frame.CanGoBack)
+                            frame.GoBack();
+                    }
+                    e1.Handled = true;
+                };
+                Window.Current.Activate();
+                id = ApplicationView.GetForCurrentView().Id;
+            });
+            await ApplicationViewSwitcher.TryShowAsStandaloneAsync(id);
         }
     }
 }
