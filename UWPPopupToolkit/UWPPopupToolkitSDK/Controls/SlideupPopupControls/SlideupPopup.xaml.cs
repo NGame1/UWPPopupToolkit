@@ -44,12 +44,5 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
             }
             Window.Current.SizeChanged += Current_SizeChanged;
         }
-
-        private async void Current_SizeChanged(object sender, WindowSizeChangedEventArgs e)
-        {
-            await HidePopupStoryboard.BeginAsync();
-            UserControl_Loaded(null, null);
-            await ShowPopupStoryboard.BeginAsync();
-        }
     }
 }

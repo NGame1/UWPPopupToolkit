@@ -17,13 +17,14 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
         /// <param name="content">Content you want to be presented inside the popup. Simply use typeof(YourUserControl)</param>
         /// <param name="ContentHeight">Height of the result popup</param>
         /// <param name="PopupWidth">Width of the result popup</param>
+        /// <param name="PopupMaxWidth">Maximum Width of the result popup</param>
         /// <param name="Host_Id">Id of the control that will host the new popup</param>
         /// <param name="OpenNewIfExists">Allows to open more than one popup with the same content</param>
         /// <param name="BgColor">Background Color of the final popup (default is White)</param>
         /// <param name="lightdismissbgcolor">Background Color of the popup's light dismiss area</param>
         /// <param name="args">Arguments needed on the Content ctor</param>
         /// <returns></returns>
-        public static async Task<Guid> ShowSlideupPopupAsync(Type content, double ContentHeight = double.NaN, double PopupWidth = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, bool IsLightDismissHidingEnabled = true, Brush BgColor = null, Color? lightdismissbgcolor = null, params object[] args)
+        public static async Task<Guid> ShowSlideupPopupAsync(Type content, double ContentHeight = double.NaN, double PopupWidth = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, bool IsLightDismissHidingEnabled = true, Brush BgColor = null, Color? lightdismissbgcolor = null, double PopupMaxWidth = double.NaN, params object[] args)
         {
             PopupPresenterHost Host = null;
             try
@@ -62,6 +63,7 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
             if (BgColor != null) p.BackgroundColorBrsh = BgColor;
             if (lightdismissbgcolor != null) p.LightDismissColor = lightdismissbgcolor;
             if (!double.IsNaN(PopupWidth)) p.PopupWidth = PopupWidth;
+            if (!double.IsNaN(PopupMaxWidth)) p.PopupMaxWidth = PopupMaxWidth;
             Host.Children.Add(p);
             await p.ShowPopupAsync();
             return p.Identifier;
@@ -73,13 +75,14 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
         /// <param name="content">Content you want to be presented inside the popup. Simply use typeof(YourUserControl)</param>
         /// <param name="ContentHeight">Height of the result popup. </param>
         /// <param name="PopupWidth">Width of the result popup. </param>
+        /// <param name="PopupMaxWidth">Maximum Width of the result popup. </param>
         /// <param name="Host_Id">Id of the control that will host the new popup</param>
         /// <param name="OpenNewIfExists">Allows to open more than one popup with the same content</param>
         /// <param name="BgColor">Background Color of the final popup (default is White)</param>
         /// <param name="lightdismissbgcolor">Background Color of the popup's light dismiss area</param>
         /// <param name="args">Arguments needed on the Content ctor</param>
         /// <returns></returns>
-        public static Guid ShowSlideupPopup(Type content, double ContentHeight = double.NaN, double PopupWidth = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, Brush BgColor = null, bool IsLightDismissHidingEnabled = true, Color? lightdismissbgcolor = null, params object[] args)
+        public static Guid ShowSlideupPopup(Type content, double ContentHeight = double.NaN, double PopupWidth = double.NaN, string Host_Id = null, bool OpenNewIfExists = true, Brush BgColor = null, bool IsLightDismissHidingEnabled = true, Color? lightdismissbgcolor = null, double PopupMaxWidth = double.NaN, params object[] args)
         {
             PopupPresenterHost Host = null;
             try
@@ -115,6 +118,7 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
             if (BgColor != null) p.BackgroundColorBrsh = BgColor;
             if (lightdismissbgcolor != null) p.LightDismissColor = lightdismissbgcolor;
             if (!double.IsNaN(PopupWidth)) p.PopupWidth = PopupWidth;
+            if (!double.IsNaN(PopupMaxWidth)) p.PopupMaxWidth = PopupMaxWidth;
             Host.Children.Add(p);
             p.ShowPopup();
             return p.Identifier;

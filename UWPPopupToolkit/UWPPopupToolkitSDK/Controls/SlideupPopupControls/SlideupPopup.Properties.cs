@@ -33,9 +33,14 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
         public Brush BackgroundColorBrsh { get; set; } = null;
 
         /// <summary>
-        /// result popup width witch is full width 
+        /// result popup width witch is full width by default
         /// </summary>
         public double PopupWidth { get; set; } = double.NaN;
+        
+        /// <summary>
+        /// result popup maximum width witch is unlimited
+        /// </summary>
+        public double PopupMaxWidth { get; set; } = double.NaN;
 
         /// <summary>
         /// Enables / Disables the light dismiss, allows to close popup by tapping out of the popup

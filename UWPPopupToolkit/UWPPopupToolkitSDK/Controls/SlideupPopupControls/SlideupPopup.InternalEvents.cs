@@ -3,6 +3,7 @@ using Microsoft.Toolkit.Uwp.UI.Extensions;
 using System.Linq;
 using System.Threading.Tasks;
 using UWPPopupToolkit.Controls.PopupPresenterHostControls;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -111,6 +112,8 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
             }
             else ContentPresentationGrid.Margin = new Thickness(0, 0, 0, 100);
             if (!double.IsNaN(PopupWidth)) _popup.Width = PopupWidth;
+            else _popup.Width = this.ActualWidth;
+            if (!double.IsNaN(PopupMaxWidth)) _popup.MaxWidth = PopupMaxWidth;
             da.From = null;
         }
 
@@ -126,6 +129,13 @@ namespace UWPPopupToolkit.Controls.SlideupPopupControls
                 Dispose();
             }
             catch { }
+        }
+
+        private async void Current_SizeChanged(object sender, WindowSizeChangedEventArgs e)
+        {
+            await HidePopupStoryboard.BeginAsync();
+            UserControl_Loaded(null, null);
+            await ShowPopupStoryboard.BeginAsync();
         }
     }
 }

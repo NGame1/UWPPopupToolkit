@@ -57,7 +57,7 @@ namespace UWPPopupToolkit.Controls.PopupPresenterHostControls
                 await msg.ShowAsync();
                 return Guid.Empty;
             }
-            return await PopupPresenterHost.ShowSlideupPopupAsync(typeof(MessageBoxControl), Host_Id: Host_Id, args: new object[] { content == null ? message : content, Title, Commands, args });
+            return await PopupPresenterHost.ShowSlideupPopupAsync(typeof(MessageBoxControl), Host_Id: Host_Id, PopupMaxWidth: 600, args: new object[] { content == null ? message : content, Title, Commands, args });
         }
     }
 }
